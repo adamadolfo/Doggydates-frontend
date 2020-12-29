@@ -1,22 +1,41 @@
 import react from "react"
+import { Link } from 'react-router-dom';
 import PetsIcon from '@material-ui/icons/Pets';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ChatIcon from '@material-ui/icons/Chat';
-import { Grid } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 
 
 const Header = () => {
     return(
     <div style={{display: "flex"}}>
-        <Grid container justify = "center">
-            <Grid item xs={4} style={{align: "center"}}>
-                <AccountCircleIcon style={{fontSize: 75, color: "black", marginLeft: "100px"}}/>
+        <Grid 
+        container
+        spacing={0}
+        align="center"
+        justify="center"
+        direction="row"
+        >
+            <Grid item xs={4}>
+                <Link to='/profile' style={{ textDecoration: 'none' }}>
+                    <IconButton>
+                        <AccountCircleIcon style={{fontSize: "75px", color: "black", }}/>
+                    </IconButton>
+                </Link>
             </Grid>
             <Grid item xs={4}>
-                <PetsIcon style={{fontSize: 75, color: "orange", marginLeft: "100px"}} />
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                    <IconButton>
+                        <PetsIcon style={{fontSize: "75px", color: "orange"}} />
+                    </IconButton>
+                </Link>
             </Grid>
             <Grid item xs={4}>
-                <ChatIcon style={{fontSize: 75, color: "black"}} />
+                <Link to='/matches' style={{ textDecoration: 'none' }}>
+                    <IconButton>
+                        <ChatIcon style={{fontSize: "75px", color: "black"}} />
+                    </IconButton>
+                </Link>
             </Grid>
         </Grid>
     </div>
