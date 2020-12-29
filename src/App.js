@@ -1,16 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
+import SwipePage from './components/SwipePage'
+import Header from './components/Header'
 import Button from '@material-ui/core/Button'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Button variant="contained" color="secondary">
-            button
-          </Button>
-      </header>
+      <>
+        <Header />
+        <SwipePage />
+     
+      </>  
     </div>
   );
 }
