@@ -24,7 +24,7 @@ const Header = () => {
                 </Link>
             </Grid>
             <Grid item xs={4}>
-                <Link to='/' style={{ textDecoration: 'none' }}>
+                <Link to='/swipe' style={{ textDecoration: 'none' }}>
                     <IconButton>
                         <PetsIcon style={{fontSize: "75px", color: "orange"}} />
                     </IconButton>

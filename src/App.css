@@ -1,4 +1,11 @@
 .App {
   margin: 0;
-}
+  padding: 0;
+  /* background-image: url('./images/background2.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  overflow: hidden; 
+*/
 
+}

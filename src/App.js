@@ -1,5 +1,6 @@
 
 import './App.css';
+import Welcome from './components/Welcome'
 import SwipePage from './components/SwipePage'
 import Profile from './components/Profile'
 import Matches from './components/Matches'
@@ -13,7 +14,8 @@ function App() {
         <Switch>
           <Route path="/profile" component={Profile} />
           <Route path="/matches" component={Matches} />
-          <Route exact path="/" component={SwipePage} />
+          <Route path="/swipe" component={SwipePage} />
+          <Route exact path="/" component={Welcome} />
         </Switch>
       </Router>   
     </div>
