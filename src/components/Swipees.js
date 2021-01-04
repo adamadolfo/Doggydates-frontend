@@ -1,8 +1,11 @@
 import react from "react"
+import DogCard from './DogCard'
 import { Grid } from '@material-ui/core';
 
 
 const Swipees = (props) => {
+    let dogs = props.owner.dogs
+    console.log(dogs)
     return(
         <>
             <Grid 
@@ -23,12 +26,9 @@ const Swipees = (props) => {
                     <div> What are you looking forward to doing with your dog(s) and friend? {props.owner.looking_for} </div>
                     <div> How far are you willing to Travel? {props.owner.willing_mile_radius} </div>
 
-                    <div> 
+                    <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
+                 
                         
-                    {props.owner.dogs.map(dog => {
-                        <div>{dog.name} </div>
-                    })}
-                         </div>
                 </Grid>
                 
             </Grid>
