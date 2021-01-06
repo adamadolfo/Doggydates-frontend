@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+}
+
 .App {
   margin: 0;
   padding: 0;
@@ -6,8 +10,13 @@
   background-repeat: no-repeat; 
   background-size: cover; 
   overflow: hidden; 
-*/
+  */
 
 }
 
+
+.welcome {
+  height: 100% ;
+  overflow: hidden;
+}
 
