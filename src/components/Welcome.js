@@ -3,9 +3,7 @@ import { Grid, TextField } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 import logo from '../logo.png'
 
 
@@ -26,7 +24,7 @@ function Welcome() {
             main: orange[500],
           },
           secondary: {
-            main: '#f8bbd0',
+            main: '#141a1f',
           },
         },
       });
@@ -48,10 +46,12 @@ function Welcome() {
                     <div style={{textAlign: "center"}}>
                         <ThemeProvider theme={theme}>
                             <img src={logo} />
-                            <div style={{fontSize: "2rem"}}> Good dogs. Good people. </div>
+                            <div className="good" > Good dogs. Good people. </div>
+                            <div style={{fontSize: "1.25rem", margin: "10px", height: "100%"}}>Sign In</div>
                             <TextField style={styles} id="outlined-basic" label="Email" variant="outlined" />
-                            <TextField style={styles} id="outlined-basic" label="Password" variant="outlined" />
-                            
+                            <TextField style={styles} type="password" id="outlined-basic" label="Password" variant="outlined" />
+                            <Button style={{color: "white", width: "70%", margin: "10px", height: "50px", fontSize: "1.15rem"}} variant="contained" color="primary">Sign In</Button>
+                            <Button style={{textTransform: 'none', marginTop: "5px", fontWeight: "150"}} id="signupbutton" color="secondary">Don't have an account? Sign Up</Button>
                         </ThemeProvider>
                     </div>  
                 </Grid>
