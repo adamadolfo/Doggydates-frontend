@@ -1,22 +1,36 @@
+
+
 *{
   margin: 0;
+}
+
+html, body {
+  height:100%;
+}
+
+#root {
+  height: 100%;
 }
 
 .App {
   margin: 0;
   padding: 0;
-  /* background-image: url('./images/background2.png');
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  overflow: hidden; 
-  */
-
+  height: 100%
 }
 
 
 .welcome {
   height: 100% ;
-  overflow: hidden;
 }
 
+.rob {
+  
+    background-size: cover;
+    background-color: #fafafa;
+    background-image: url(rob.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 935px;
+    overflow: hidden;
+  
+}
