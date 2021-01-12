@@ -10,26 +10,34 @@ const Swipees = (props) => {
         <>
             <Grid 
             container
-            spacing={0}
-            align="center"
+            spacing={3}
+            alignItems="center"
             justify="center"
-            direction="column"
+            direction="row"
             >
-                <Grid item>
+              
+                <Grid item style={{ maxWidth: "600px"}}>
                     <img src={props.owner.image_url} className="swipee" />
-                    <div className="swipe-text" > {props.owner.name} {props.owner.age} </div>
-                    <div>{props.owner.city}, {props.owner.state} </div>
-                    <div> Experience as owner: {props.owner.owner_exp} </div>
-                    <div> Intentions: {props.owner.friendship_type} </div>
-                    <div> Prefered age of friend: {props.owner.age_preference} </div>
-                    <div> Prefered gender of friend: {props.owner.gender_preference} </div>
-                    <div> What are you looking forward to doing with your dog(s) and friend? {props.owner.looking_for} </div>
-                    <div> How far are you willing to Travel? {props.owner.willing_mile_radius} </div>
-
-                    <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
-                 
-                        
+                    <div className="owner-name"> {props.owner.name} {props.owner.age} 
+                        <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
+                    </div>
+                    <div className="prompt"> Experience as an owner? </div>
+                    <div className="answer"> {props.owner.owner_exp} </div>
+                    <div className="prompt"> What are you looking forward to doing with your dog(s) and friend?  </div>
+                    <div className="answer"> {props.owner.looking_for} </div>
+                    <div className="prompt"> Intentions? </div>
+                    <div className="answer"> {props.owner.friendship_type} </div>
+                    <div className="prompt"> Prefered age of friend? </div>
+                    <div className="answer"> {props.owner.age_preference} </div>
+                    <div className="prompt"> Prefered gender of friend? </div>
+                    <div className="answer"> {props.owner.gender_preference} </div>
+                    <div className="prompt"> How far are you willing to Travel? </div>
+                    <div className="answer"> {props.owner.willing_mile_radius} </div>
                 </Grid>
+                <Grid item style={{backgroundColor: "blue"}}>
+                    <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
+                </Grid>
+                        
                 
             </Grid>
         </>
