@@ -44,14 +44,33 @@ html, body {
   margin-bottom: 20px;
 }
 
-.swipee{
+.swipee {
   max-width: 600px;
   width: 100%;
 }
 
-.swipe-text {
-  /* font-weight: bolder; */
+.owner-name {
   font-size: 2rem;
-  max-width: 600px;
-  
+  margin: 2vh;
+  padding-bottom: 3vh;
+}
+
+.city-state {
+  float: right;
+  font-size: medium;
+  margin: 10px;
+}
+
+.prompt {
+  font-size: large;
+  margin-left: 4% ;
+  margin-right: 4% ;
+  margin-top: 4%;
+}
+
+.answer {
+  font-size: xx-large;
+  margin: 7%;
+  color: rgb(255, 145, 0);
+  font-weight: bolder;
 }
