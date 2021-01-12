@@ -1,6 +1,7 @@
 
 import './App.css';
 import Welcome from './components/Welcome'
+import SignUp from './components/SignUp'
 import SwipePage from './components/SwipePage'
 import Profile from './components/Profile'
 import Matches from './components/Matches'

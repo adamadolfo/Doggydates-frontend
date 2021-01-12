@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
 import logo from '../logo.png'
+import SignUp from './SignUp'
 
 
 
@@ -16,6 +17,7 @@ function Welcome() {
     // react code
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
+   const [signup, setSignup] = useState(false)
    const [user, setUser] = useState({})
 
 
@@ -53,6 +55,9 @@ function Welcome() {
     };
 
 
+    const showSignUp = () => {
+        setSignup(!signup)
+    }
 
 
 
@@ -90,6 +95,7 @@ function Welcome() {
                 <Grid item className="MuiPaper-root MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-5 MuiPaper-elevation6" style={{}}>
                     <div style={{textAlign: "center"}}>
                         <ThemeProvider theme={theme}>
+                            {!signup ? <> 
                             <img src={logo} />
                             <div className="good" > Good dogs. Good people. </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
@@ -98,7 +104,10 @@ function Welcome() {
                                 <TextField style={styles} onChange={(e) => handlePassword(e)} value={password} type="password" id="outlined-basic" label="Password" variant="outlined" />
                                 <Button type="submit" style={{color: "white", width: "70%", margin: "10px", height: "50px", fontSize: "1.15rem"}} variant="contained" color="primary">Sign In</Button>
                             </form>
-                            <Button style={{textTransform: 'none', marginTop: "5px", fontWeight: "150"}} id="signupbutton" color="secondary">Don't have an account? Sign Up</Button>
+                              <Button onClick={showSignUp} style={{textTransform: 'none', marginTop: "5px", fontWeight: "150"}} id="signupbutton" color="secondary">Don't have an account? Sign Up</Button>
+                              </>
+                               : 
+                              <SignUp showSignUp={showSignUp}/> }
                         </ThemeProvider>
                     </div>  
                 </Grid>
