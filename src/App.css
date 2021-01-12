@@ -5,6 +5,8 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
+
+
 html, body {
   height:100%;
 }
@@ -42,3 +44,14 @@ html, body {
   margin-bottom: 20px;
 }
 
+.swipee{
+  max-width: 600px;
+  width: 100%;
+}
+
+.swipe-text {
+  /* font-weight: bolder; */
+  font-size: 2rem;
+  max-width: 600px;
+  
+}

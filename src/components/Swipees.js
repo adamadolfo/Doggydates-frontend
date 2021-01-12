@@ -16,8 +16,8 @@ const Swipees = (props) => {
             direction="column"
             >
                 <Grid item>
-                    <img src={props.owner.image_url} style={{height: "400px", width: "400px"}} />
-                    <h3> {props.owner.name} {props.owner.age} </h3>
+                    <img src={props.owner.image_url} className="swipee" />
+                    <div className="swipe-text" > {props.owner.name} {props.owner.age} </div>
                     <div>{props.owner.city}, {props.owner.state} </div>
                     <div> Experience as owner: {props.owner.owner_exp} </div>
                     <div> Intentions: {props.owner.friendship_type} </div>
