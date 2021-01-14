@@ -31,21 +31,21 @@ function SignUp(props) {
 
     const handleSubmit = async e => {
 
-    
         e.preventDefault()
+
         if (password === passwordConfirm) {
             const owner = { 
                 email: email, 
                 password: password
             };
             console.log(owner)
-            fetch("http://localhost:3001/owners", {
+            const response = await fetch("http://localhost:3001/owners", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(owner)
             })
-            .then(r => r.json())
-            .then(owner => console.log(owner))
+            const owners = await response.json()
+            console.log(owners)
             // set the state of the user
             // setUser(response.data)
             // // store the user in localStorage
@@ -55,6 +55,8 @@ function SignUp(props) {
         } else {
             alert("Passwords do not match")
         }
+
+        
 
     };
 
