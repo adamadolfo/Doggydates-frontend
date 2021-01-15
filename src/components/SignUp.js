@@ -2,6 +2,8 @@ import react, {useState} from 'react';
 import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -15,7 +17,7 @@ function SignUp(props) {
    const [password, setPassword] = useState("")
    const [passwordConfirm, setPasswordConfirm] = useState("")
 
-
+   const history = useHistory();
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -45,13 +47,13 @@ function SignUp(props) {
                 body: JSON.stringify(owner)
             })
             const owners = await response.json()
-            console.log(owners)
+            
             // set the state of the user
             // setUser(response.data)
             // // store the user in localStorage
             // localStorage.setItem('user', response.data)
             // console.log(response.data)
-
+            history.push("/swipe");
         } else {
             alert("Passwords do not match")
         }
