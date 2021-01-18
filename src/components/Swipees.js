@@ -5,7 +5,6 @@ import { Grid } from '@material-ui/core';
 
 const Swipees = (props) => {
     let dogs = props.owner.dogs
-    console.log(dogs)
     return(
         <>
             <Grid 
