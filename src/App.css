@@ -50,10 +50,21 @@ html, body {
   width: 100%;
 }
 
+.owner-container {
+  max-width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.52);
+  margin-right: 10%;
+}
+
 .owner-name {
   font-size: 2rem;
   margin: 2vh;
   padding-bottom: 3vh;
+  border-width:5px;  
+  border-bottom-style: groove;
+
 }
 
 .age {
@@ -71,12 +82,43 @@ html, body {
   font-size: large;
   margin-left: 4% ;
   margin-right: 4% ;
-  margin-top: 4%;
+  margin-top: 7%;
 }
 
 .answer {
   font-size: xx-large;
-  margin: 7%;
+  margin-left: 7%;
   color: rgb(255, 145, 0);
   font-weight: bolder;
+}
+
+#dog-card {
+  max-width: 600px;
+  height: max-content;
+  background-color: orange;
+  border-radius: 10px;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.52);
+  margin-right: 10%;
+  margin: 3%;
+}
+
+.license {
+  display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   max-width: 300px;
+}
+
+#dog-image {
+  height: 250px;
+  width: 250px;
+}
+
+.dog-traits {
+  font-weight: bold;
+  margin: 3%
+}
+
+.trait-name {
+  color: orange
 }

@@ -1,5 +1,5 @@
 import react from "react"
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 
 
 const DogCard = (props) => {
@@ -7,28 +7,34 @@ const DogCard = (props) => {
         <>
             <Grid 
             container
-            spacing={0}
-            align="center"
+            spacing={7}
+            // align="center"
             justify="center"
-            direction="column"
+            direction="row"
             >
                 <Grid item>
-                    <img src={props.dog.img_url} style={{height: "200px"}}/>
-                    <h1> {props.dog.name} {props.dog.age} </h1>
-                    <div>{props.dog.breed}</div>
-                    <div>{props.dog.gender}</div>
-                    <div>Great Date Points: {props.dog.great_date}</div>
-                    <div>{props.dog.breed}</div>
-                    <br/>
-                    <div>About {props.dog.name}</div>
-                    <div>Enjoys: {props.dog.enjoys}: </div>
-                    <div>Dislikes: {props.dog.dislikes}: </div>
-                    <div>Gender {props.dog.name} plays best with: {props.dog.gets_along_with}</div>
-                    <div>General behavior {props.dog.name} shows around others: {props.dog.temperement}</div>
-                    <div>{props.dog.name} is: {props.dog.dominate_submissive}</div>
-                    <div>Is {props.dog.name} leashed or unleashed usually? {props.dog.leash}</div>
-                    <div>{props.dog.name} prefers: {props.dog.one_on_one_group} dates</div>
-                    <div>Where {props.dog.name} comes from: {props.dog.adopted_breeder} </div>
+                    <img src={props.dog.img_url} id="dog-image" />
+                </Grid>
+                <Grid item>
+                    
+                        <h1 style={{fontSize: "2.5rem", margin: "5%"}}>  {props.dog.name}, {props.dog.age} </h1>
+                        <div style={{fontSize: "1.5rem", margin: "5%"}}> {props.dog.breed} </div>
+                        <div style={{fontSize: "1rem", margin: "5%"}}> {props.dog.gender}</div>
+                        <div style={{fontSize: "1rem", marginTop: "20%"}}> Great Date Points: {props.dog.great_date}</div>
+                   
+                </Grid>
+                <Grid item>
+                <div style={{fontSize: "2rem", margin: "1%", fontWeight: "bold"}}>About {props.dog.name}</div>
+                <Paper elevation={10} style={{padding: "3%"}}>
+                    <div className="dog-traits"> <span className="trait-name"> Enjoys: </span> {props.dog.enjoys}: </div>
+                    <div className="dog-traits"> <span className="trait-name"> Dislikes: </span> {props.dog.dislikes}: </div>
+                    <div className="dog-traits"> <span className="trait-name"> Gender {props.dog.name} plays best with:</span> {props.dog.gets_along_with}</div>
+                    <div className="dog-traits"> <span className="trait-name"> General behavior {props.dog.name} shows around others:</span> {props.dog.temperement}</div>
+                    <div className="dog-traits"> <span className="trait-name"> {props.dog.name} is:</span> {props.dog.dominate_submissive}</div>
+                    <div className="dog-traits"> <span className="trait-name"> Is {props.dog.name} leashed or unleashed usually?</span> {props.dog.leash}</div>
+                    <div className="dog-traits"> <span className="trait-name"> {props.dog.name} prefers:</span> {props.dog.one_on_one_group} dates</div>
+                    <div className="dog-traits"> <span className="trait-name"> Where {props.dog.name} comes from:</span> {props.dog.adopted_breeder} </div>
+                </Paper>
                 </Grid>
                 
             </Grid>
