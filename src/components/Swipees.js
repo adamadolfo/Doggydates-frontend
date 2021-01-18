@@ -14,11 +14,13 @@ const Swipees = (props) => {
             alignItems="center"
             justify="center"
             direction="row"
+            
             >
               
-                <Grid item style={{ maxWidth: "600px"}}>
+                <Grid item style={{ maxWidth: "600px", backgroundColor: "white", borderRadius: "10px"}}>
                     <img src={props.owner.image_url} className="swipee" />
-                    <div className="owner-name"> {props.owner.name} {props.owner.age} 
+                    <div className="owner-name"> {props.owner.name} 
+                        <div className="age"> {props.owner.age} </div>
                         <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
                     </div>
                     <div className="prompt"> Experience as an owner? </div>
@@ -34,7 +36,7 @@ const Swipees = (props) => {
                     <div className="prompt"> How far are you willing to Travel? </div>
                     <div className="answer"> {props.owner.willing_mile_radius} </div>
                 </Grid>
-                <Grid item style={{backgroundColor: "blue"}}>
+                <Grid item style={{backgroundColor: "blue", position: "relative", top: "0"}}>
                     <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
                 </Grid>
                         

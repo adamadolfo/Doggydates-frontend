@@ -8,7 +8,7 @@ import { Grid, IconButton } from '@material-ui/core';
 
 const Header = () => {
     return(
-    <div style={{display: "flex"}}>
+    <div style={{display: "flex", marginBottom: "3vh", backgroundColor: "orange"}}>
         <Grid 
         container
         spacing={0}
@@ -19,21 +19,21 @@ const Header = () => {
             <Grid item xs={4}>
                 <Link to='/profile' style={{ textDecoration: 'none' }}>
                     <IconButton>
-                        <AccountCircleIcon style={{fontSize: "75px", color: "black", }}/>
+                        <AccountCircleIcon style={{fontSize: "75px", color: "white", }}/>
                     </IconButton>
                 </Link>
             </Grid>
             <Grid item xs={4}>
                 <Link to='/swipe' style={{ textDecoration: 'none' }}>
                     <IconButton>
-                        <PetsIcon style={{fontSize: "75px", color: "orange"}} />
+                        <PetsIcon style={{fontSize: "75px", color: "white"}} />
                     </IconButton>
                 </Link>
             </Grid>
             <Grid item xs={4}>
                 <Link to='/matches' style={{ textDecoration: 'none' }}>
                     <IconButton>
-                        <ChatIcon style={{fontSize: "75px", color: "black"}} />
+                        <ChatIcon style={{fontSize: "75px", color: "white"}} />
                     </IconButton>
                 </Link>
             </Grid>

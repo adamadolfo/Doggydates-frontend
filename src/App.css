@@ -9,6 +9,7 @@
 
 html, body {
   height:100%;
+  background-color: rgb(230, 228, 228);
 }
 
 #root {
@@ -55,8 +56,13 @@ html, body {
   padding-bottom: 3vh;
 }
 
-.city-state {
+.age {
   float: right;
+  font-size: 2rem;
+  padding-bottom: 3vh;
+}
+
+.city-state {
   font-size: medium;
   margin: 10px;
 }
