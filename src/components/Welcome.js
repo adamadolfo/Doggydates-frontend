@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import logo from '../logo.png'
 import SignUp from './SignUp'
 
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -18,7 +20,9 @@ function Welcome() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
    const [signup, setSignup] = useState(false)
-   const [user, setUser] = useState({})
+   const [user, setUser] = useState()
+
+   const history = useHistory();
 
 
     const handleEmail = (e) => {
@@ -36,19 +40,18 @@ function Welcome() {
             email: email, 
             password: password
         };
-        console.log(owner)
 
-        
-        fetch("http://localhost:3001/owners", {
+        const response = await fetch("http://localhost:3001/login", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(owner)
         })
-        .then(r => r.json())
-        .then(owner => console.log(owner))
-        // set the state of the user
-        // setUser(response.data)
-        // // store the user in localStorage
+        const loggedInOwner = await response.json()
+        console.log(loggedInOwner);
+        setUser(loggedInOwner)
+        console.log(user);
+        localStorage.setItem('user', JSON.stringify(user))
+        history.push("/swipe");
         // localStorage.setItem('user', response.data)
         // console.log(response.data)
 
