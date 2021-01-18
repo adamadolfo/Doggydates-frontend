@@ -1,5 +1,5 @@
 import react from "react"
-import { Grid, TextField } from '@material-ui/core';
+import { Grid, TextField, Paper } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
@@ -31,7 +31,7 @@ const EditUserForm = () => {
     
 
     return(
-        <>
+        <Paper>
            <ThemeProvider theme={theme}>
            <h1>Edit Profile</h1>
            <form>
@@ -167,7 +167,7 @@ const EditUserForm = () => {
                 <textarea style={{minHeight: "100px", minWidth: "400px"}} placeholder="What activities are you most looking forward to with your dog(s) and meetups"/>
             </form>
     </ThemeProvider>
-        </>
+        </Paper>
     )
 }
 

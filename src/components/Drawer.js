@@ -4,12 +4,14 @@ import Header from './Header'
 import MenuIcon from '@material-ui/icons/Menu';
 
 
-const Drawer = () => {
+const Drawer = (props) => {
     return(
-        <div style={{backgroundColor: "white", minWidth: "300px", height: "90%", position: "absolute"}}>
-            <div style={{backgroundColor: "grey"}}> 
-                <MenuIcon style={{fontSize: "3rem", marginLeft: "80%"}} /> 
+        // add border radius and some texture to each option. maybe a hover effect
+        <div style={{backgroundColor: "grey", minWidth: "300px", height: "90%", position: "absolute", zIndex: 2}}>
+            <div style={{backgroundColor: "black"}}> 
+                <MenuIcon onClick={props.showDrawer} style={{fontSize: "3rem", marginLeft: "80%", color: "white"}} /> 
             </div>
+            <div onClick={props.editProfile}> Edit Profile </div>
         </div>
     )
 }

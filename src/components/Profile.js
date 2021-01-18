@@ -20,11 +20,16 @@ const Profile = () => {
         setDrawer(!drawer)
     }
 
+    const editProfile = () => {
+        setProfile(!profile)
+        showDrawer()
+    }
+
 
     return(
         <>
             <Header />
-            { drawer ? <Drawer /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem"}}/> }
+            { drawer ? <Drawer showDrawer={showDrawer} editProfile={editProfile} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem"}}/> }
    
             { profile ? <User /> : <EditUserForm /> }
         </>
