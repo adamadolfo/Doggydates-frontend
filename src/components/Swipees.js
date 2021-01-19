@@ -1,13 +1,13 @@
-import react from "react"
+import react, {useEffect} from "react"
 import DogCard from './DogCard'
 import { Grid } from '@material-ui/core';
 
 
 const Swipees = (props) => {
-    let dogs = props.owner.dogs
+    // let dogs = props.owner.dogs
     return(
         <>
-            <Grid 
+            {/* <Grid 
             container
             spacing={3}
             // alignItems="center"
@@ -37,11 +37,11 @@ const Swipees = (props) => {
                 </Grid>
                 <Grid item id="dog-card">
                     <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
-                </Grid>
+                 </Grid>
                         
                 
-            </Grid>
-        </>
+            </Grid> */}
+        </> 
     )
 }
 
