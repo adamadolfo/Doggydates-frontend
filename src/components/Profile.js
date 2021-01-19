@@ -1,4 +1,4 @@
-import react, {useState} from "react"
+import react, {useState, useEffect} from "react"
 
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from "react-router-dom";
@@ -9,15 +9,23 @@ import Header from './Header'
 import User from './User'
 import Drawer from './Drawer'
 
+import DogCard from './DogCard'
+import { Grid } from '@material-ui/core';
+
+
 
 
 const Profile = () => {
 
     const [profile, setProfile] = useState(true)
     const [drawer, setDrawer] = useState(false)
-    const [user, setUser] = useState()
+    
 
-
+    const loggedInUser = JSON.parse(localStorage.getItem("user"))
+    
+    // useEffect(() => {
+    
+    // })
     
     const history = useHistory();
 
@@ -37,15 +45,12 @@ const Profile = () => {
 
 
 
-    const loggedInUser = JSON.parse(localStorage.getItem("user"))
-    
-    
     return(
         <>
             <Header />
             { drawer ? <Drawer logout={logout} showDrawer={showDrawer} editProfile={editProfile} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
    
-            { profile ? <User /> : <EditUserForm /> }
+            { profile ? <User owner={loggedInUser} /> : <EditUserForm /> }
         </>
     )
 }
