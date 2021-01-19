@@ -16,8 +16,7 @@ function SignUp(props) {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
    const [passwordConfirm, setPasswordConfirm] = useState("")
-   const [user, setUser] = useState()
-
+   
    const history = useHistory();
 
     const handleEmail = (e) => {
@@ -48,8 +47,7 @@ function SignUp(props) {
                 body: JSON.stringify(owner)
             })
             const loggedInOwner = await response.json()
-            setUser(loggedInOwner)
-            localStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('user', JSON.stringify(loggedInOwner))
             history.push("/swipe");
         } else {
             alert("Passwords do not match")

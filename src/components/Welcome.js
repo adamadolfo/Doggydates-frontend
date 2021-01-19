@@ -20,7 +20,6 @@ function Welcome() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
    const [signup, setSignup] = useState(false)
-   const [user, setUser] = useState()
 
    const history = useHistory();
 
@@ -48,9 +47,7 @@ function Welcome() {
         })
         const loggedInOwner = await response.json()
         console.log(loggedInOwner);
-        setUser(loggedInOwner)
-        console.log(user);
-        localStorage.setItem('user', JSON.stringify(user))
+        localStorage.setItem('user', JSON.stringify(loggedInOwner))
         history.push("/swipe");
         // localStorage.setItem('user', response.data)
         // console.log(response.data)
@@ -95,7 +92,7 @@ function Welcome() {
                 
                         
                 </Grid>
-                <Grid item className="MuiPaper-root MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-5 MuiPaper-elevation6" style={{}}>
+                <Grid item className="MuiPaper-root MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-8 MuiGrid-grid-md-5 MuiPaper-elevation6" style={{backgroundColor: "white"}}>
                     <div style={{textAlign: "center"}}>
                         <ThemeProvider theme={theme}>
                             {!signup ? <> 

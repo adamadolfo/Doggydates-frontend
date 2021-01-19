@@ -8,7 +8,7 @@ import { Grid, IconButton } from '@material-ui/core';
 
 const Header = () => {
     return(
-    <div style={{display: "flex", backgroundColor: "orange"}}>
+    <div style={{display: "flex", backgroundColor: "orange", marginBottom: "3vh"}}>
         <Grid 
         container
         spacing={0}
