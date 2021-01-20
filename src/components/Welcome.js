@@ -46,11 +46,8 @@ function Welcome() {
             body: JSON.stringify(owner)
         })
         const loggedInOwner = await response.json()
-        console.log(loggedInOwner);
         localStorage.setItem('user', JSON.stringify(loggedInOwner))
         history.push("/swipe");
-        // localStorage.setItem('user', response.data)
-        // console.log(response.data)
 
     };
 

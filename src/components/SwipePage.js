@@ -19,9 +19,8 @@ const SwipePage = () => {
         .then(r => r.json())
         .then(ownersData => {
             setOwners(ownersData)
+            randomizeSwipee(ownersData)
         })
-        debugger
-        randomizeSwipee(owners)
     }, [])
 
     const randomizeSwipee = (array) => {
@@ -29,7 +28,6 @@ const SwipePage = () => {
         debugger
         setRandomOwner(randomized)
         debugger
-
     }
 
 
@@ -38,7 +36,7 @@ const SwipePage = () => {
     return(
         <div style={{height: "auto"}} >
             <Header />
-            { <Swipees owner={randomOwner}/>}
+            { randomOwner ? <Swipees owner={randomOwner}/> : null}
             
         </div>
     )

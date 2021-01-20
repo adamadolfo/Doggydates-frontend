@@ -4,10 +4,10 @@ import { Grid } from '@material-ui/core';
 
 
 const Swipees = (props) => {
-    // let dogs = props.owner.dogs
+    let dogs = props.owner.dogs
     return(
         <>
-            {/* <Grid 
+            <Grid 
             container
             spacing={3}
             // alignItems="center"
@@ -40,7 +40,7 @@ const Swipees = (props) => {
                  </Grid>
                         
                 
-            </Grid> */}
+            </Grid>
         </> 
     )
 }
