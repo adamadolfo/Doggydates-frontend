@@ -1,4 +1,4 @@
-import react from "react"
+import react, {useState} from "react"
 import { Grid, TextField, Paper } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -13,6 +13,65 @@ import Select from '@material-ui/core/Select';
 
 const EditUserForm = () => {
 
+    //react code
+    const [name, setName] = useState('')
+    const [age, setAge] = useState()
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [image, setImage] = useState('')
+    const [experience, setExperience] = useState('')
+    const [willingToTravel, setWillingToTravel] = useState('')
+    const [friendship, setFriendship] = useState('')
+    const [agePref, setAgePref] = useState('')
+    const [genderPref, setGenderPref] = useState('')
+    const [activities, setActivities] = useState('')
+
+    const handleName = (e) => {
+        setName(e.target.value)
+    }
+
+    const handleAge = (e) => {
+        setAge(e.target.value)
+    }
+
+    const handleCity = (e) => {
+        setCity(e.target.value)
+    }
+
+    const handleState = (e) => {
+        setState(e.target.value)
+    }
+
+    const handleImage = (e) => {
+        setImage(e.target.value)
+    }
+
+    const handleExperience = (e) => {
+        setExperience(e.target.value)
+    }
+
+    const handleWillingToTravel = (e) => {
+        setWillingToTravel(e.target.value)
+    }
+    
+    const handleFriendship = (e) => {
+        setFriendship(e.target.value)
+    }
+
+    const handleAgePref = (e) => {
+        setAgePref(e.target.value)
+    }
+
+    const handleGenderPref = (e) => {
+        setGenderPref(e.target.value)
+    }
+
+    const handleActivities = (e) => {
+        setActivities(e.target.value)
+    }
+
+
+    //styling
     const styles = {
         margin: "10px",
         width: "40%"
@@ -30,25 +89,27 @@ const EditUserForm = () => {
       });
     
 
+
     return(
         <Paper>
            <ThemeProvider theme={theme}>
            <h1>Edit Profile</h1>
            <form>
   
-                <TextField style={styles} id="outlined-basic" label="Name" variant="outlined" />
-                <TextField style={styles} id="outlined-basic" label="Age" variant="outlined" />
-                <TextField style={styles} type="email" id="outlined-basic" label="Email" variant="outlined" />
-                <TextField style={styles} type="password" id="outlined-basic" label="Password" variant="outlined" />
-                <TextField style={styles} id="outlined-basic" label="City" variant="outlined" />
+                <TextField onChange={(e) => handleName(e)} value={name} style={styles} id="outlined-basic" label="Name" variant="outlined" />
+                <TextField onChange={(e) => handleAge(e)} value={age} style={styles} id="outlined-basic" label="Age" variant="outlined" />
+                {/* <TextField style={styles} type="email" id="outlined-basic" label="Email" variant="outlined" />
+                <TextField style={styles} type="password" id="outlined-basic" label="Password" variant="outlined" /> */}
+                <TextField onChange={(e) => handleCity(e)} value={city} style={styles} id="outlined-basic" label="City" variant="outlined" />
                 <FormControl variant="outlined">
                     <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">State</InputLabel>
                         <Select
                             style={{width: "85px", margin: "10px"}}
                             native
                             label="State"
+                            onChange={(e) => handleState(e)}
                             >
-                            <option aria-label="None" value="" />
+                            <option aria-label="None" value=""/>
                             <option value="AL">AL</option>
                             <option value="AK">AK</option>
                             <option value="AZ">AZ</option>
@@ -102,21 +163,22 @@ const EditUserForm = () => {
                             <option value="WY">WY</option>
                         </Select>
                 </FormControl>
-                <TextField style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
-                <TextField style={styles} id="outlined-basic" label="Owner Experience" variant="outlined" />
+                <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
+                <TextField onChange={(e) => handleExperience(e)} value={experience} style={styles} id="outlined-basic" label="Owner Experience" variant="outlined" />
                 <FormControl variant="outlined">
                     <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Willing to travel</InputLabel>
                         <Select
                             style={{width: "160px", margin: "10px"}}
                             native
                             label="Willing to travel"
+                            onChange={(e) => handleWillingToTravel(e)}
                             >
                             <option aria-label="None" value="" />
-                            <option value="0-10 miles"> 0-10 Miles </option>
-                            <option value="10-25 miles"> 10-25 Miles </option>
-                            <option value="25-50 miles"> 25-50 Miles </option>
-                            <option value="50-100 miles"> 50-100 Miles </option>
-                            <option value="over 100 miles"> Over 100 Miles </option>
+                            <option value="0-10 Miles"> 0-10 Miles </option>
+                            <option value="10-25 Miles"> 10-25 Miles </option>
+                            <option value="25-50 Miles"> 25-50 Miles </option>
+                            <option value="50-100 Miles"> 50-100 Miles </option>
+                            <option value="over 100 Miles"> Over 100 Miles </option>
                         </Select>
                 </FormControl>
                 <h1>Intentions</h1>
@@ -126,6 +188,7 @@ const EditUserForm = () => {
                             style={{width: "200px", margin: "10px"}}
                             native
                             label="Friendship Type"
+                            onChange={(e) => handleFriendship(e)}
                             >
                             <option aria-label="None" value="" />
                             <option value="friendship"> Friendship </option>
@@ -141,6 +204,7 @@ const EditUserForm = () => {
                             style={{width: "200px", margin: "10px"}}
                             native
                             label="Age Preference"
+                            onChange={(e) => handleAgePref(e)}
                             >
                             <option aria-label="None" value="" />
                             <option value="18-25"> 18-25 </option>
@@ -151,12 +215,14 @@ const EditUserForm = () => {
                             <option value="Age Is Just A Number"> Age Is Just A Number </option>
                         </Select>
                 </FormControl>
+
                 <FormControl variant="outlined">
                     <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Gender Preference</InputLabel>
                         <Select
                             style={{width: "200px", margin: "10px"}}
                             native
                             label="Gender Preference"
+                            onChange={(e) => handleGenderPref(e)}
                             >
                             <option aria-label="None" value="" />
                             <option value="Male"> Male </option>
@@ -164,7 +230,7 @@ const EditUserForm = () => {
                             <option value="Anyone"> Anyone </option>
                         </Select>
                 </FormControl>
-                <textarea style={{minHeight: "100px", minWidth: "400px"}} placeholder="What activities are you most looking forward to with your dog(s) and meetups"/>
+                <textarea onChange={(e) => handleActivities(e)} value={activities} style={{minHeight: "100px", minWidth: "400px"}} placeholder="What activities are you most looking forward to with your dog(s) and meetups"/>
             </form>
     </ThemeProvider>
         </Paper>
