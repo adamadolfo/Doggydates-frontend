@@ -1,5 +1,5 @@
 import react, {useState} from "react"
-import { Grid, TextField, Paper } from '@material-ui/core';
+import { Grid, TextField, Paper, Button } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
@@ -70,6 +70,36 @@ const EditUserForm = () => {
         setActivities(e.target.value)
     }
 
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const currentUser = JSON.parse(localStorage.getItem("user"))
+       
+        const userInfo = {
+            id: currentUser.id,
+            name: name,
+            age: parseInt(age),
+            age_preference: agePref,
+            friendship_type: friendship,
+            owner_experience: experience,
+            gender_preference: genderPref,
+            looking_for: activities,
+            city: city,
+            state: state,
+            willing_mile_radius: willingToTravel,
+            image_url: image
+        }
+
+        const response = await fetch(`http://localhost:3001/owners/${currentUser.id}`, {
+            method: "PATCH",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userInfo)
+        })
+
+        const loggedInOwner = await response.json()
+        loggedInOwner.status == "fail" ? alert("nope") : localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
+
+    }
+
 
     //styling
     const styles = {
@@ -94,7 +124,7 @@ const EditUserForm = () => {
         <Paper>
            <ThemeProvider theme={theme}>
            <h1>Edit Profile</h1>
-           <form>
+           <form onSubmit={(e) => handleSubmit(e)}>
   
                 <TextField onChange={(e) => handleName(e)} value={name} style={styles} id="outlined-basic" label="Name" variant="outlined" />
                 <TextField onChange={(e) => handleAge(e)} value={age} style={styles} id="outlined-basic" label="Age" variant="outlined" />
@@ -231,6 +261,7 @@ const EditUserForm = () => {
                         </Select>
                 </FormControl>
                 <textarea onChange={(e) => handleActivities(e)} value={activities} style={{minHeight: "100px", minWidth: "400px"}} placeholder="What activities are you most looking forward to with your dog(s) and meetups"/>
+                <Button type="submit" style={{color: "white", width: "70%", margin: "10px", height: "50px", fontSize: "1.15rem"}} variant="contained" color="primary">Edit</Button>
             </form>
     </ThemeProvider>
         </Paper>
