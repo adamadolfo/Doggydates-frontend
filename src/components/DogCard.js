@@ -17,9 +17,10 @@ const DogCard = (props) => {
                 </Grid>
                 <Grid item>
                     
-                        <h1 style={{fontSize: "2.5rem", margin: "5%"}}>  {props.dog.name}, {props.dog.age} </h1>
-                        <div style={{fontSize: "1.5rem", margin: "5%"}}> {props.dog.breed} </div>
-                        <div style={{fontSize: "1rem", margin: "5%"}}> {props.dog.gender}</div>
+                        <h1 style={{fontSize: "2rem"}}>  {props.dog.name} </h1>
+                        <div style={{fontSize: "2rem", marginTop: "5%"}} >{props.dog.age}  <span> years old</span> </div>
+                        <div style={{fontSize: "1.5rem", marginTop: "5%"}}> {props.dog.breed} </div>
+                        <div style={{fontSize: "1rem", marginTop: "5%"}}> {props.dog.gender}</div>
                         <div style={{fontSize: "1rem", marginTop: "20%"}}> Great Date Points: {props.dog.great_date}</div>
                    
                 </Grid>
