@@ -36,7 +36,7 @@ const Swipees = (props) => {
                     <div className="answer"> {props.owner.willing_mile_radius} </div>
                 </Grid>
 
-                 <Grid item id="dog-card" >
+                 <Grid item  >
                     <div>{ dogs.map(dog => <DogCard dog={dog}/>) } </div>
                 </Grid>  
                 

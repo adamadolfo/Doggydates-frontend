@@ -11,6 +11,7 @@ const DogCard = (props) => {
             // align="center"
             justify="center"
             direction="row"
+            id="dog-card"
             >
                 <Grid item>
                     <img src={props.dog.img_url} id="dog-image" />

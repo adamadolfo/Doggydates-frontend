@@ -129,6 +129,9 @@ html, body {
   color: orange
 }
 
+
+/* menu drawer */
+
 .drawer {
   background-color: white;
   min-width: 300px;
@@ -149,5 +152,13 @@ html, body {
   background-color: rgb(219, 219, 219);
   color: orange;
   border-radius: 10px;
+  margin-left: 20px;
   
+}
+
+/* Edit form */
+.form-paper {
+  max-width: 1000px;
+  padding: 2%;
+  margin: 2%;
 }

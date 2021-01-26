@@ -1,10 +1,11 @@
-import react, {useState, useEffect} from "react"
+import react, {useState} from "react"
 
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from "react-router-dom";
 
 
 import EditUserForm from "./EditUserForm"
+import AddDog from './AddDog'
 import Header from './Header'
 import User from './User'
 import Drawer from './Drawer'
@@ -19,13 +20,11 @@ const Profile = () => {
 
     const [profile, setProfile] = useState(true)
     const [drawer, setDrawer] = useState(false)
+    const [addDog, setAddDog] = useState(false)
     
 
     const loggedInUser = JSON.parse(localStorage.getItem("user"))
-    
-    // useEffect(() => {
-    
-    // })
+
     
     const history = useHistory();
 
@@ -38,9 +37,18 @@ const Profile = () => {
         setDrawer(!drawer)
     }
 
+    const addNewDog = () => {
+        setAddDog(!addDog)
+    }
+
+
     const editProfile = () => {
         setProfile(!profile)
-        showDrawer()
+        if (drawer) {
+           return showDrawer()
+        } else {
+           return null
+        }
     }
 
 
@@ -48,9 +56,15 @@ const Profile = () => {
     return(
         <>
             <Header />
-            { drawer ? <Drawer logout={logout} showDrawer={showDrawer} editProfile={editProfile} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
-   
-            { profile ? <User owner={loggedInUser} /> : <EditUserForm /> }
+            { drawer ? <Drawer logout={logout} showDrawer={showDrawer} editProfile={editProfile} profile={profile} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
+
+           
+            { profile ? <User owner={loggedInUser} /> : <EditUserForm editProfile={editProfile}/> }
+
+            { addDog ? <AddDog addNewDog={addNewDog}/> : null }
+
+
+            
         </>
     )
 }
