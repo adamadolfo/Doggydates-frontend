@@ -18,9 +18,10 @@ import { Grid } from '@material-ui/core';
 
 const Profile = () => {
 
-    const [profile, setProfile] = useState(true)
     const [drawer, setDrawer] = useState(false)
-    const [addDog, setAddDog] = useState(false)
+    const [shown, setShown] = useState("profile")
+
+    
     
 
     const loggedInUser = JSON.parse(localStorage.getItem("user"))
@@ -37,17 +38,46 @@ const Profile = () => {
         setDrawer(!drawer)
     }
 
+    const drawerHelper = () => {
+        if (drawer) {
+            return showDrawer()
+         } else {
+            return null
+         }
+    }
+
     const addNewDog = () => {
-        setAddDog(!addDog)
+        setShown("newDog")
+        drawerHelper()
+    }
+
+    const showProfile = () => {
+        setShown("profile")
+        drawerHelper()
     }
 
 
     const editProfile = () => {
-        setProfile(!profile)
-        if (drawer) {
-           return showDrawer()
-        } else {
-           return null
+        setShown("editProfile")
+        drawerHelper()
+    }
+
+    const editDog = () => {
+        setShown("editDog")
+        drawerHelper()
+    }
+
+    const shownComponent = () => {
+        switch (shown) {
+            case "profile" :
+                return <User owner={loggedInUser} /> 
+            case "editProfile" :
+                return <EditUserForm editProfile={editProfile}/>
+            case "newDog" :
+                return <AddDog addNewDog={addNewDog}/>
+            case "editDog" :
+                return <h1>Edit Dog</h1>
+
         }
     }
 
@@ -56,12 +86,9 @@ const Profile = () => {
     return(
         <>
             <Header />
-            { drawer ? <Drawer logout={logout} showDrawer={showDrawer} editProfile={editProfile} profile={profile} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
+            { drawer ? <Drawer logout={logout} showProfile={showProfile} showDrawer={showDrawer} editProfile={editProfile} addNewDog={addNewDog} editDog={editDog} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
 
-           
-            { profile ? <User owner={loggedInUser} /> : <EditUserForm editProfile={editProfile}/> }
-
-            { addDog ? <AddDog addNewDog={addNewDog}/> : null }
+            {shownComponent()}
 
 
             
