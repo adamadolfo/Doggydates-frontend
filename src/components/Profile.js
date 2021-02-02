@@ -77,7 +77,7 @@ const Profile = () => {
             case "newDog" :
                 return <AddDog showProfile={showProfile} addNewDog={addNewDog}/>
             case "editDog" :
-                return  <EditDog />
+                return  <EditDog showProfile={showProfile} />
 
         }
     }

@@ -28,6 +28,10 @@ const EditDog = (props) => {
         const [leash, setLeash] = useState('')
         const [oneOnOneGroup, setOneOnOneGroup] = useState('')
         const [origin, setOrigin] = useState('')
+        const [id, setId] = useState()
+
+
+        const loggedInUser = JSON.parse(localStorage.getItem("user"))
     
     
         const handleName = (e) => {
@@ -81,12 +85,18 @@ const EditDog = (props) => {
         const handleOrigin = (e) => {
             setOrigin(e.target.value)
         }
+
+        const handleDog = (e) => {
+            setId(e.target.value)
+            debugger
+        } 
     
         const handleSubmit = async e => {
             e.preventDefault()
             const currentUser = JSON.parse(localStorage.getItem("user"))
            
             const dogInfo = {
+                id: parseInt(id),
                 name: name, 
                 breed: breed, 
                 gender: gender,
@@ -102,13 +112,14 @@ const EditDog = (props) => {
                 age: age
             }
     
-            const response = await fetch(`http://localhost:3001/dogs/${currentUser.id}`, {
+            const response = await fetch(`http://localhost:3001/dogs/${parseInt(id)}`, {
                 method: "PATCH",
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(userInfo)
+                body: JSON.stringify(dogInfo)
             })
     
             const loggedInOwner = await response.json()
+
             localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
     
             props.showProfile()
@@ -147,6 +158,19 @@ const EditDog = (props) => {
                 <ThemeProvider theme={theme}>
                 <h1>Edit Dog</h1>
                 <form onSubmit={(e) => handleSubmit(e)}>
+                        <FormControl variant="outlined">
+                            <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Select Dog</InputLabel>
+                                <Select
+                                    style={{width: "100px", margin: "10px"}}
+                                    native
+                                    label="Select Dog"
+                                    onChange={(e) => handleDog(e)}
+                                    >
+                                    <option value="">  </option>
+                                    {loggedInUser.dogs.map(dog => <option value={parseInt(dog.id)}> {dog.name} </option>)}
+                                    
+                                </Select>
+                        </FormControl>
                         <TextField onChange={(e) => handleName(e)} value={name} style={styles} id="outlined-basic" label="Name" variant="outlined" />
                         <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
                         <TextField onChange={(e) => handleAge(e)} value={age} style={styles} id="outlined-basic" label="Age" variant="outlined" />

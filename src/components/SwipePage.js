@@ -25,9 +25,7 @@ const SwipePage = () => {
 
     const randomizeSwipee = (array) => {
         const randomized = array[array.length * Math.random() | 0]
-        debugger
         setRandomOwner(randomized)
-        debugger
     }
 
 
