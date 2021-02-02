@@ -101,17 +101,16 @@ const AddDog = (props) => {
             age: age
         }
 
-        console.log(dogInfo)
-        // const response = await fetch(`http://localhost:3001/owners/${currentUser.id}`, {
-        //     method: "PATCH",
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(userInfo)
-        // })
+        const response = await fetch("http://localhost:3001/dogs", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dogInfo)
+        })
 
-        // const loggedInOwner = await response.json()
-        // loggedInOwner.status == "fail" ? alert("nope") : localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
+        const loggedInOwner = await response.json()
+        localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
 
-        // props.editProfile()
+        props.showProfile()
 
     }
 

@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 
 import EditUserForm from "./EditUserForm"
 import AddDog from './AddDog'
+import EditDog from './EditDog'
 import Header from './Header'
 import User from './User'
 import Drawer from './Drawer'
@@ -74,9 +75,9 @@ const Profile = () => {
             case "editProfile" :
                 return <EditUserForm editProfile={editProfile}/>
             case "newDog" :
-                return <AddDog addNewDog={addNewDog}/>
+                return <AddDog showProfile={showProfile} addNewDog={addNewDog}/>
             case "editDog" :
-                return <h1>Edit Dog</h1>
+                return  <EditDog />
 
         }
     }
