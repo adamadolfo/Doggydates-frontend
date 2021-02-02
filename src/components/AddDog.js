@@ -18,13 +18,16 @@ const AddDog = (props) => {
     const [age, setAge] = useState()
     const [breed, setBreed] = useState('')
     const [gender, setGender] = useState('')
-    // const [image, setImage] = useState('')
-    // const [experience, setExperience] = useState('')
-    // const [willingToTravel, setWillingToTravel] = useState('')
-    // const [friendship, setFriendship] = useState('')
-    // const [agePref, setAgePref] = useState('')
-    // const [genderPref, setGenderPref] = useState('')
-    // const [activities, setActivities] = useState('')
+    const [image, setImage] = useState('')
+    const [enjoys, setEnjoys] = useState('')
+    const [dislikes, setDislikes] = useState('')
+    const [getsAlongWith, setGetsAlongWith] = useState('')
+    const [temperament, setTemperament] = useState('')
+    const [dominateSubmissive, setDominateSubmissive] = useState('')
+    const [leash, setLeash] = useState('')
+    const [oneOnOneGroup, setOneOnOneGroup] = useState('')
+    const [origin, setOrigin] = useState('')
+
 
     const handleName = (e) => {
         setName(e.target.value)
@@ -42,65 +45,75 @@ const AddDog = (props) => {
         setGender(e.target.value)
     }
 
-    // const handleImage = (e) => {
-    //     setImage(e.target.value)
-    // }
+    const handleImage = (e) => {
+        setImage(e.target.value)
+    }
 
-    // const handleExperience = (e) => {
-    //     setExperience(e.target.value)
-    // }
+    const handleEnjoys = (e) => {
+        setEnjoys(e.target.value)
+    }
 
-    // const handleWillingToTravel = (e) => {
-    //     setWillingToTravel(e.target.value)
-    // }
+    const handleDislikes = (e) => {
+        setDislikes(e.target.value)
+    }
     
-    // const handleFriendship = (e) => {
-    //     setFriendship(e.target.value)
-    // }
+    const handleGetsAlongWith = (e) => {
+        setGetsAlongWith(e.target.value)
+    }
 
-    // const handleAgePref = (e) => {
-    //     setAgePref(e.target.value)
-    // }
+    const handleTemperament = (e) => {
+        setTemperament(e.target.value)
+    }
 
-    // const handleGenderPref = (e) => {
-    //     setGenderPref(e.target.value)
-    // }
+    const handleDominateSubmissive = (e) => {
+        setDominateSubmissive(e.target.value)
+    }
 
-    // const handleActivities = (e) => {
-    //     setActivities(e.target.value)
-    // }
+    const handleLeash = (e) => {
+        setLeash(e.target.value)
+    }
 
-    // const handleSubmit = async e => {
-    //     e.preventDefault()
-    //     const currentUser = JSON.parse(localStorage.getItem("user"))
+    const handleOneOnOneGroup = (e) => {
+        setOneOnOneGroup(e.target.value)
+    }
+
+    const handleOrigin = (e) => {
+        setOrigin(e.target.value)
+    }
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        const currentUser = JSON.parse(localStorage.getItem("user"))
        
-    //     const userInfo = {
-    //         id: currentUser.id,
-    //         name: name,
-    //         age: parseInt(age),
-    //         age_preference: agePref,
-    //         friendship_type: friendship,
-    //         owner_experience: experience,
-    //         gender_preference: genderPref,
-    //         looking_for: activities,
-    //         city: city,
-    //         state: state,
-    //         willing_mile_radius: willingToTravel,
-    //         image_url: image
-    //     }
+        const dogInfo = {
+            name: name, 
+            breed: breed, 
+            gender: gender,
+            gets_along_with: getsAlongWith,
+            temperament: temperament,
+            dominate_submissive: dominateSubmissive,
+            leash: leash,
+            one_on_one_group: oneOnOneGroup,
+            enjoys: enjoys,
+            dislikes: dislikes,
+            adoped_breeder: origin,
+            owner_id: currentUser.id,
+            age: age
+        }
 
-    //     const response = await fetch(`http://localhost:3001/owners/${currentUser.id}`, {
-    //         method: "PATCH",
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(userInfo)
-    //     })
+        console.log(dogInfo)
+        // const response = await fetch(`http://localhost:3001/owners/${currentUser.id}`, {
+        //     method: "PATCH",
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(userInfo)
+        // })
 
-    //     const loggedInOwner = await response.json()
-    //     loggedInOwner.status == "fail" ? alert("nope") : localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
+        // const loggedInOwner = await response.json()
+        // loggedInOwner.status == "fail" ? alert("nope") : localStorage.setItem('user', JSON.stringify(loggedInOwner)) 
 
-    //     props.editProfile()
+        // props.editProfile()
 
-    // }
+    }
 
 
     //styling
@@ -133,96 +146,111 @@ const AddDog = (props) => {
                 <Paper className="form-paper">
                     <ThemeProvider theme={theme}>
                     <h1>Add Dog</h1>
-                    {/* <form onSubmit={(e) => handleSubmit(e)}> */}
-                    <form>
-            
+                    <form onSubmit={(e) => handleSubmit(e)}>
                             <TextField onChange={(e) => handleName(e)} value={name} style={styles} id="outlined-basic" label="Name" variant="outlined" />
+                            <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
                             <TextField onChange={(e) => handleAge(e)} value={age} style={styles} id="outlined-basic" label="Age" variant="outlined" />
-                            {/* <TextField style={styles} type="email" id="outlined-basic" label="Email" variant="outlined" />
-                            <TextField style={styles} type="password" id="outlined-basic" label="Password" variant="outlined" /> */}
-                            <TextField onChange={(e) => handleBreed(e)} value={breed} style={styles} id="outlined-basic" label="Breed" variant="outlined" />
                             <FormControl variant="outlined">
                                 <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Gender</InputLabel>
                                     <Select
-                                        style={{width: "85px", margin: "10px"}}
+                                        style={{width: "100px", margin: "10px"}}
                                         native
                                         label="Gender"
                                         onChange={(e) => handleGender(e)}
                                         >
                                         <option aria-label="None" value=""/>
-                                        <option value="male"> Male </option>
-                                        <option value="male"> Female </option>
+                                        <option value="Male"> Male </option>
+                                        <option value="Female"> Female </option>
                                     </Select>
                             </FormControl>
-                            {/* <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
-                            <TextField onChange={(e) => handleExperience(e)} value={experience} style={styles} id="outlined-basic" label="Owner Experience" variant="outlined" />
+                            <br/>
+                            <TextField onChange={(e) => handleBreed(e)} value={breed} style={styles} id="outlined-basic" label="Breed" variant="outlined" />
+                            <TextField onChange={(e) => handleEnjoys(e)} value={enjoys} style={styles} id="outlined-basic" label="Enjoys" variant="outlined" />
+                            <TextField onChange={(e) => handleDislikes(e)} value={dislikes} style={styles} id="outlined-basic" label="Dislikes" variant="outlined" />
+                            <TextField onChange={(e) => handleGetsAlongWith(e)} value={getsAlongWith} style={styles} id="outlined-basic" label="What does your dog look for in other dogs?" variant="outlined" />
                             <FormControl variant="outlined">
-                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Willing to travel</InputLabel>
+                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Usual Temperament Around Others</InputLabel>
                                     <Select
-                                        style={{width: "160px", margin: "10px"}}
+                                        style={{width: "300px", margin: "10px"}}
                                         native
-                                        label="Willing to travel"
-                                        onChange={(e) => handleWillingToTravel(e)}
+                                        label="Usual Temperament Around Others"
+                                        onChange={(e) => handleTemperament(e)}
                                         >
                                         <option aria-label="None" value="" />
-                                        <option value="0-10 Miles"> 0-10 Miles </option>
-                                        <option value="10-25 Miles"> 10-25 Miles </option>
-                                        <option value="25-50 Miles"> 25-50 Miles </option>
-                                        <option value="50-100 Miles"> 50-100 Miles </option>
-                                        <option value="over 100 Miles"> Over 100 Miles </option>
-                                    </Select>
-                            </FormControl>
-                            <h1>Intentions</h1>
-                            <FormControl variant="outlined">
-                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Friendship Type</InputLabel>
-                                    <Select
-                                        style={{width: "200px", margin: "10px"}}
-                                        native
-                                        label="Friendship Type"
-                                        onChange={(e) => handleFriendship(e)}
-                                        >
-                                        <option aria-label="None" value="" />
-                                        <option value="friendship"> Friendship </option>
-                                        <option value="someone special"> Someone Special </option>
-                                        <option value="Strictly Dog Related"> Strictly Dog Related </option>
-                                        <option value="Didn't Think About It"> Didn't Think About It </option>
-                                    </Select>
-                            </FormControl>
-                        
-                            <FormControl variant="outlined">
-                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Age Preference</InputLabel>
-                                    <Select
-                                        style={{width: "200px", margin: "10px"}}
-                                        native
-                                        label="Age Preference"
-                                        onChange={(e) => handleAgePref(e)}
-                                        >
-                                        <option aria-label="None" value="" />
-                                        <option value="18-25"> 18-25 </option>
-                                        <option value="26-33"> 26-33 </option>
-                                        <option value="33-40"> 33-40 </option>
-                                        <option value="40-54"> 40-54 </option>
-                                        <option value="55 and over"> 55 And Over </option>
-                                        <option value="Age Is Just A Number"> Age Is Just A Number </option>
+                                        <option value="Playful"> Playful </option>
+                                        <option value="Relaxed"> Relaxed </option>
+                                        <option value="Confident"> Confident </option>
+                                        <option value="Shy"> Shy </option>
+                                        <option value="Afraid"> Afraid </option>
+                                        <option value="Mischievous"> Mischievous </option>
+                                        <option value="Aggresive"> Aggresive </option>
+                                        <option value="Different Day Different Dog"> Different Day Different Dog </option>
+
                                     </Select>
                             </FormControl>
 
                             <FormControl variant="outlined">
-                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Gender Preference</InputLabel>
+                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Dominate/Submissive</InputLabel>
                                     <Select
                                         style={{width: "200px", margin: "10px"}}
                                         native
-                                        label="Gender Preference"
-                                        onChange={(e) => handleGenderPref(e)}
+                                        label="Dominate/Submissive"
+                                        onChange={(e) => handleDominateSubmissive(e)}
                                         >
                                         <option aria-label="None" value="" />
-                                        <option value="Male"> Male </option>
-                                        <option value="Female"> Female </option>
-                                        <option value="Anyone"> Anyone </option>
+                                        <option value="Dominate"> Dominate </option>
+                                        <option value="Submissive"> Submissive </option>
                                     </Select>
-                            </FormControl> */}
-                            {/* <textarea onChange={(e) => handleActivities(e)} value={activities} style={{minHeight: "100px", minWidth: "300px"}} placeholder="What activities are you most looking forward to with your dog(s) and meetups"/> */}
-                            {/* <Button type="submit" style={{color: "white", width: "96%", margin: "10px", height: "50px", fontSize: "1.15rem"}} variant="contained" color="primary">Edit</Button> */}
+                            </FormControl>
+
+                            <FormControl variant="outlined">
+                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Leash</InputLabel>
+                                    <Select
+                                        style={{width: "210px", margin: "10px"}}
+                                        native
+                                        label="Leash"
+                                        onChange={(e) => handleLeash(e)}
+                                        >
+                                        <option aria-label="None" value="" />
+                                        <option value="Usually Leashed"> Usually Leashed </option>
+                                        <option value="Usually Off The Leash"> Usually Off The Leash </option>
+                                    </Select>
+                            </FormControl>
+
+                            <FormControl variant="outlined">
+                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">One-on-One/Group</InputLabel>
+                                    <Select
+                                        style={{width: "200px", margin: "10px"}}
+                                        native
+                                        label="One-on-One/Group"
+                                        onChange={(e) => handleOneOnOneGroup(e)}
+                                        >
+                                        <option aria-label="None" value="" />
+                                        <option value="One-on-One"> One-on-One date</option>
+                                        <option value="Group Dates"> Group Dates </option>
+                                        <option value="Both"> Both </option>
+                                    </Select>
+                            </FormControl>
+
+                            <FormControl variant="outlined">
+                                <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Origin Story</InputLabel>
+                                    <Select
+                                        style={{width: "300px", margin: "10px"}}
+                                        native
+                                        label="Origin Story"
+                                        onChange={(e) => handleOrigin(e)}
+                                        >
+                                        <option aria-label="None" value="" />
+                                        <option value="Adopted"> Adopted </option>
+                                        <option value="Rescued"> Rescued </option>
+                                        <option value="Breeder"> Breeder </option>
+                                        <option value="Someone I Know"> Someone I Know </option>
+                                        <option value="Other"> Other </option>
+
+                                    </Select>
+                            </FormControl>
+                           
+                            <Button type="submit" style={{color: "white", width: "96%", margin: "10px", height: "50px", fontSize: "1.15rem"}} variant="contained" color="primary">Add Dog</Button>
                         </form>
                 </ThemeProvider>
                 </Paper>
