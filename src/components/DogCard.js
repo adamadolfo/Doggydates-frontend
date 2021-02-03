@@ -28,8 +28,8 @@ const DogCard = (props) => {
                 <Grid item>
                 <div style={{fontSize: "2rem", margin: "1%", fontWeight: "bold"}}>About {props.dog.name}</div>
                 <Paper elevation={10} style={{padding: "3%"}}>
-                    <div className="dog-traits"> <span className="trait-name"> Enjoys: </span> {props.dog.enjoys}: </div>
-                    <div className="dog-traits"> <span className="trait-name"> Dislikes: </span> {props.dog.dislikes}: </div>
+                    <div className="dog-traits"> <span className="trait-name"> Enjoys: </span> {props.dog.enjoys} </div>
+                    <div className="dog-traits"> <span className="trait-name"> Dislikes: </span> {props.dog.dislikes} </div>
                     <div className="dog-traits"> <span className="trait-name"> Gender {props.dog.name} plays best with:</span> {props.dog.gets_along_with}</div>
                     <div className="dog-traits"> <span className="trait-name"> General behavior {props.dog.name} shows around others:</span> {props.dog.temperement}</div>
                     <div className="dog-traits"> <span className="trait-name"> {props.dog.name} is:</span> {props.dog.dominate_submissive}</div>
@@ -43,13 +43,6 @@ const DogCard = (props) => {
         </>
     )
 }
-
-
-    // t.string "img_url"
-
-
-
-
 
 
 export default DogCard

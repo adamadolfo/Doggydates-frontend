@@ -1,6 +1,8 @@
 import react, {useEffect} from "react"
 import DogCard from './DogCard'
 import { Grid } from '@material-ui/core';
+import SentimentVerySatisfiedTwoToneIcon from '@material-ui/icons/SentimentVerySatisfiedTwoTone';
+import SentimentVeryDissatisfiedTwoToneIcon from '@material-ui/icons/SentimentVeryDissatisfiedTwoTone';
 
 
 const Swipees = (props) => {
@@ -21,6 +23,7 @@ const Swipees = (props) => {
                     <div className="owner-name"> {props.owner.name} 
                         <div className="age"> {props.owner.age} </div>
                         <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
+                        <div style={{textAlign: "center"}}> <SentimentVerySatisfiedTwoToneIcon onClick={props.like} style={{fontSize: "5rem", color: "orange", marginRight: "20%", cursor: "pointer"}} /> <SentimentVeryDissatisfiedTwoToneIcon onClick={props.dislike} style={{fontSize: "5rem", color: "red", cursor: "pointer"}} /> </div>
                     </div>
                     <div className="prompt"> Experience as an owner? </div>
                     <div className="answer"> {props.owner.owner_exp} </div>
