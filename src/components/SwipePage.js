@@ -28,10 +28,11 @@ const SwipePage = () => {
         setRandomOwner(randomized)
     }
 
-    const like = () => {
+
+    const likeDislikeHelper = () => {
         const likeInfo = {
             id: loggedInUser.id,
-            liked: randomOwner.id
+            clicked: randomOwner.id
         }
         fetch('http://localhost:3001/remove', {
             method: "POST",
@@ -39,20 +40,18 @@ const SwipePage = () => {
             body: JSON.stringify(likeInfo)
         })
         .then(r => r.json())
-        // .then(ownersData => {
-        //     setOwners(ownersData)
-        //     randomizeSwipee(ownersData)
-        // })
+        .then(ownersData => {
+            randomizeSwipee(ownersData)
+        })
+    }
+
+    const like = () => {
+        likeDislikeHelper()
     }
 
 
    const dislike = () => {
-        //rerandomize and maybe remove
-        const filtered = owners.filter(function(item) {
-            return item.id !== randomOwner.id
-        })
-        setOwners(filtered)
-        randomizeSwipee(owners)
+        likeDislikeHelper()
     }
 
 
