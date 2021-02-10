@@ -28,6 +28,9 @@ const SwipePage = () => {
         setRandomOwner(randomized)
     }
 
+    const match = (bool) => {
+        return bool ? alert("Match") : null
+    }
 
     const like = () => {
         const matchObj = {
@@ -42,7 +45,8 @@ const SwipePage = () => {
         })
         .then(r => r.json())
         .then(ownersData => {
-            randomizeSwipee(ownersData)
+            randomizeSwipee(JSON.parse(ownersData.feed))
+            match(ownersData.match)
         })
     }
 
@@ -60,7 +64,8 @@ const SwipePage = () => {
         })
         .then(r => r.json())
         .then(ownersData => {
-            randomizeSwipee(ownersData)
+            // randomizeSwipee(ownersData.feed)
+            randomizeSwipee(JSON.parse(ownersData.feed))
         })
     }
 
