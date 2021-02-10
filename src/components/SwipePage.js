@@ -29,15 +29,16 @@ const SwipePage = () => {
     }
 
 
-    const likeDislikeHelper = () => {
-        const likeInfo = {
+    const like = () => {
+        const matchObj = {
             id: loggedInUser.id,
-            clicked: randomOwner.id
+            clicked: randomOwner.id,
+            option: "yes"
         }
-        fetch('http://localhost:3001/remove', {
+        fetch('http://localhost:3001/swipe', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(likeInfo)
+            body: JSON.stringify(matchObj)
         })
         .then(r => r.json())
         .then(ownersData => {
@@ -45,14 +46,26 @@ const SwipePage = () => {
         })
     }
 
-    const like = () => {
-        likeDislikeHelper()
-    }
-
 
    const dislike = () => {
-        likeDislikeHelper()
+        const matchObj = {
+            id: loggedInUser.id,
+            clicked: randomOwner.id,
+            option: "you can't sit with us"
+        }
+        fetch('http://localhost:3001/swipe', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(matchObj)
+        })
+        .then(r => r.json())
+        .then(ownersData => {
+            randomizeSwipee(ownersData)
+        })
     }
+
+
+
 
 
 
