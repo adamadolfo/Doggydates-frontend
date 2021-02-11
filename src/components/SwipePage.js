@@ -64,7 +64,6 @@ const SwipePage = () => {
         })
         .then(r => r.json())
         .then(ownersData => {
-            // randomizeSwipee(ownersData.feed)
             randomizeSwipee(JSON.parse(ownersData.feed))
         })
     }
