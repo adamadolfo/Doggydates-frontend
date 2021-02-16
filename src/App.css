@@ -43,6 +43,7 @@ html, body {
 .good {
   font-size: 2rem;
   margin-bottom: 20px;
+  margin: 1%;
 }
 
 .swipe-container {
@@ -161,4 +162,24 @@ html, body {
   max-width: 1000px;
   padding: 2%;
   margin: 2%;
+}
+
+.match-card {
+  height: 100%;
+  width: 100%;
+  margin: 5%;
+  align-content: center;
+}
+
+.match-details{
+  color: orange;
+  font-size: xx-large;
+  text-align: center;
+  height: 30px;
+}
+
+.match-image {
+  height: 13vh;
+  width: 13vh;
+  border-radius: 500px;
 }

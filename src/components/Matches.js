@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react"
 import Header from './Header'
+import MatchCard from './MatchCard'
+import { Grid } from '@material-ui/core';
 
 
 const Matches = () => {
@@ -35,7 +37,20 @@ const Matches = () => {
     return(
         <>
             <Header />
-            {!loading ? matches.map(match => <div> {match.email} <img src={match.image_url} style={{borderRadius: "150px"}}/> </div>) : null}
+            <Grid container
+             spacing={5} 
+             direction="row"
+             justify="center"
+             alignItems="center" 
+             style={{backgroundColor: 'white'}}
+             >
+                
+                {!loading ? matches.map(match => 
+                    <Grid item> 
+                        <MatchCard match={match} /> 
+                    </Grid>
+                    ) : null }
+            </Grid>
         </>
     )
 }

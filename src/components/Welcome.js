@@ -93,7 +93,7 @@ function Welcome() {
                     <div style={{textAlign: "center"}}>
                         <ThemeProvider theme={theme}>
                             {!signup ? <> 
-                            <img src={logo} />
+                            <img src={logo} style={{maxWidth: '300px'}} />
                             <div className="good" > Good dogs. Good people. </div>
                             <form onSubmit={(e) => handleSubmit(e)}>
                                 <div style={{fontSize: "1.25rem", margin: "10px", height: "100%"}}>Sign In</div>
