@@ -10,8 +10,12 @@ const Matches = () => {
         id: loggedInUser.id
     }
 
+
     const [matches, setMatches] = useState()
     const [loading, setLoading] = useState(true)
+    const [conversationsShown, setConversationsShown] = useState(true)
+    const [conversations, setConversations] = useState()
+    const [messages, setMessages] = useState()
 
     const getMatches = () => {
         fetch('http://localhost:3001/accepted', {
@@ -26,13 +30,33 @@ const Matches = () => {
         })
     }
 
+    const getConversations = () => {
+        fetch('http://localhost:3001/findConversations', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+        .then(r => r.json())
+        .then(conversations => {
+            setConversations(conversations)
+        })
+    }
 
 
 
     useEffect(() => {
         getMatches()
+        getConversations()
     }, [])
 
+    const showConversations = () => {
+        setConversationsShown(conversationsShown = false)
+    }
+
+    const showMessages = () => {
+        showConversations()
+        setMessages(messages)
+    }
 
     return(
         <>
@@ -50,6 +74,22 @@ const Matches = () => {
                         <MatchCard match={match} /> 
                     </Grid>
                     ) : null }
+            </Grid>
+            <Grid 
+                container
+                direction="row"
+                justify="center"
+                alignItems="center" 
+                style={{marginTop: "10vh"}}
+            >
+                {conversationsShown ? 
+
+                <h1> hi </h1> 
+                : 
+                    // messages.each
+                    null
+                }
+            
             </Grid>
         </>
     )

@@ -176,10 +176,26 @@ html, body {
   font-size: xx-large;
   text-align: center;
   height: 30px;
+  cursor: pointer;
 }
 
 .match-image {
   height: 13vh;
   width: 13vh;
   border-radius: 500px;
+  cursor: pointer;
+}
+
+.match-options{
+  height: 13vh;
+  width: 13vh;
+  z-index: 2;
+  position: absolute;
+}
+
+.button-options{
+  height: 5vh;
+  width: 5vh;
+  font-size: large;
+  font-weight: bolder;
 }
