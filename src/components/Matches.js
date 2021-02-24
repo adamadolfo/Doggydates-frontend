@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import Header from './Header'
 import MatchCard from './MatchCard'
+import ConversationCard from './ConversationCard'
 import { Grid } from '@material-ui/core';
 
 
@@ -31,7 +32,7 @@ const Matches = () => {
     }
 
     const getConversations = () => {
-        fetch('http://localhost:3001/findConversations', {
+        fetch('http://localhost:3001/find-conversations', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -83,14 +84,19 @@ const Matches = () => {
                 style={{marginTop: "10vh"}}
             >
                 {conversationsShown ? 
-
-                <h1> hi </h1> 
+                !loading ? conversations.map(conversation => 
+                        <Grid item> 
+                            <ConversationCard conversation={conversation} /> 
+                        </Grid>
+                        ) : null 
                 : 
                     // messages.each
-                    null
+                    <div> </div>
                 }
             
             </Grid>
+          
+          
         </>
     )
 }
