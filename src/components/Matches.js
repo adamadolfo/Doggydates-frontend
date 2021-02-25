@@ -16,8 +16,9 @@ const Matches = () => {
     const [loading, setLoading] = useState(true)
     const [conversationsShown, setConversationsShown] = useState(true)
     const [conversations, setConversations] = useState()
-    const [messages, setMessages] = useState()
+    
 
+    // fetches
     const getMatches = () => {
         fetch('http://localhost:3001/accepted', {
             method: "POST",
@@ -27,7 +28,7 @@ const Matches = () => {
         .then(r => r.json())
         .then(matches => {
             setMatches(matches)
-            setLoading(false)
+            
         })
     }
 
@@ -38,11 +39,14 @@ const Matches = () => {
             body: JSON.stringify(user)
         })
         .then(r => r.json())
-        .then(conversations => {
-            setConversations(conversations)
+        .then(responseConversations => {
+            const convos = Object.entries(responseConversations)
+            setConversations(convos[1])
+            setLoading(false)
         })
     }
 
+    //fetches
 
 
     useEffect(() => {
@@ -50,18 +54,19 @@ const Matches = () => {
         getConversations()
     }, [])
 
-    const showConversations = () => {
-        setConversationsShown(conversationsShown = false)
-    }
+    // const showConversations = () => {
+    //     setConversationsShown(conversationsShown = false)
+    // }
 
-    const showMessages = () => {
-        showConversations()
-        setMessages(messages)
-    }
+    // const showMessages = () => {
+    //     showConversations()
+    //     setMessages(messages)
+    // }
 
     return(
         <>
             <Header />
+
             <Grid container
              spacing={5} 
              direction="row"
@@ -71,11 +76,13 @@ const Matches = () => {
              >
                 
                 {!loading ? matches.map(match => 
+
                     <Grid item> 
                         <MatchCard match={match} /> 
                     </Grid>
                     ) : null }
             </Grid>
+
             <Grid 
                 container
                 direction="row"
@@ -85,13 +92,13 @@ const Matches = () => {
             >
                 {conversationsShown ? 
                 !loading ? conversations.map(conversation => 
-                        <Grid item> 
+                        <Grid item className='chat-item'> 
                             <ConversationCard conversation={conversation} /> 
                         </Grid>
                         ) : null 
                 : 
                     // messages.each
-                    <div> </div>
+                    <div> null </div>
                 }
             
             </Grid>

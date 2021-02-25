@@ -199,3 +199,21 @@ html, body {
   font-size: large;
   font-weight: bolder;
 }
+
+
+.chat-hub {
+  margin: 1vh;
+  background-color: white;
+}
+
+.chat-item{
+  width: 80%;
+}
+
+
+.chat-image{
+  height: 13vh;
+  width: 13vh;
+  border-radius: 500px;
+  cursor: pointer;
+}
