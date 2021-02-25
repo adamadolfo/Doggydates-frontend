@@ -204,10 +204,14 @@ html, body {
 .chat-hub {
   margin: 1vh;
   background-color: white;
+  border-radius: 5vh;
+  box-shadow: 2px 2px grey;
+  align-items: center;
 }
 
 .chat-item{
-  width: 80%;
+  max-width: 600px;
+  margin: 5vh;
 }
 
 
@@ -215,5 +219,12 @@ html, body {
   height: 13vh;
   width: 13vh;
   border-radius: 500px;
-  cursor: pointer;
+}
+
+.message-preview{
+  color: grey;
+  font-size: 2vh;
+  margin-top: 1vh;
+  margin-left: 2vh;
+
 }

@@ -85,9 +85,10 @@ const Matches = () => {
 
             <Grid 
                 container
-                direction="row"
+                direction="column"
                 justify="center"
-                alignItems="center" 
+                alignItems="center"
+                spacing={3} 
                 style={{marginTop: "10vh"}}
             >
                 {conversationsShown ? 

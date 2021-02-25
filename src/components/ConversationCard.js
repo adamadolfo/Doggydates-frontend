@@ -4,6 +4,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
 import { Profiler } from "react";
+import { Grid } from '@material-ui/core';
 
 const ConversationCard = (props) => {
 
@@ -25,10 +26,20 @@ const ConversationCard = (props) => {
 
     return(
         <ThemeProvider theme={theme} >
-            <div className="chat-hub">
-            <img src={profile.image_url} className='chat-image' />
-            <div style={{color: theme.palette.primary.main}}> {profile.email} </div>
-            </div>
+            <Grid 
+                container
+                direction="row"
+                className="chat-hub"
+                spacing={2}
+            >
+                <Grid item xs={3} >
+                    <img src={profile.image_url} className='chat-image' />
+                </Grid>
+                <Grid item xs={7}>
+                    <div style={{color: theme.palette.primary.main, fontSize: "3vh", marginLeft: "2vh", marginTop: "1vh"}}> {profile.email} </div>
+                    <div className="message-preview"> this is where message preview should go ...</div>
+                </Grid>
+            </Grid>
         </ThemeProvider>
     )
 }
