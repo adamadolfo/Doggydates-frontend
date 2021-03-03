@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Grid, TextField, Paper, Button } from '@material-ui/core';
 // import { TextField } from '@material-ui/core';
 // import Button from '@material-ui/core/Button';
 
@@ -9,16 +10,24 @@ import React, {useState} from 'react';
 
 
 
-function ChatBox() {
+function ChatBox(props) {
 
 
     
 
 
     return (
-        <div>
-            Chatbox
-        </div>
+        
+        <Grid container 
+            justify="center"
+            direction="row" 
+            style={{backgroundColor: "white", height: "40vh"}} 
+        >
+           <Grid item>
+                {props.messages.count > 0 ? props.messages.map(message => <div> {message}</div>) : null}
+            </Grid>
+        </Grid>
+        
     );
   }
   
