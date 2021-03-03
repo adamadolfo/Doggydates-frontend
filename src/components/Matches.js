@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Header from './Header'
 import MatchCard from './MatchCard'
 import ConversationCard from './ConversationCard'
+import ChatBox from './ChatBox'
 import { Grid } from '@material-ui/core';
 
 
@@ -16,6 +17,7 @@ const Matches = () => {
     const [loading, setLoading] = useState(true)
     const [conversationsShown, setConversationsShown] = useState(true)
     const [conversations, setConversations] = useState()
+    const [messages, setMessages] = useState()
     
 
     // fetches
@@ -58,10 +60,10 @@ const Matches = () => {
     //     setConversationsShown(conversationsShown = false)
     // }
 
-    // const showMessages = () => {
-    //     showConversations()
-    //     setMessages(messages)
-    // }
+    const showMessages = (clickedConversation) => {
+        setMessages(clickedConversation)
+        setConversationsShown(!conversationsShown) 
+    }
 
     return(
         <>
@@ -93,13 +95,13 @@ const Matches = () => {
             >
                 {conversationsShown ? 
                 !loading ? conversations.map(conversation => 
-                        <Grid item className='chat-item'> 
-                            <ConversationCard conversation={conversation} /> 
+                        <Grid onClick={() => showMessages(conversation)} item className='chat-item'> 
+                            <ConversationCard  conversation={conversation} /> 
                         </Grid>
-                        ) : null 
+                        ) : 
+                        null
                 : 
-                    // messages.each
-                    <div> null </div>
+                    <ChatBox /> 
                 }
             
             </Grid>

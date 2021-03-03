@@ -26,6 +26,7 @@ const ConversationCard = (props) => {
 
     return(
         <ThemeProvider theme={theme} >
+          {messages.count > 0 ? 
             <Grid 
                 container
                 direction="row"
@@ -40,6 +41,7 @@ const ConversationCard = (props) => {
                     <div className="message-preview"> this is where message preview should go ...</div>
                 </Grid>
             </Grid>
+          : null}
         </ThemeProvider>
     )
 }
