@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Header from './Header'
 import MatchCard from './MatchCard'
 import ConversationCard from './ConversationCard'
+import NewMessageBox from './NewMessageBox'
 import ChatBox from './ChatBox'
 import { Grid } from '@material-ui/core';
 
@@ -18,6 +19,7 @@ const Matches = () => {
     const [conversationsShown, setConversationsShown] = useState(true)
     const [conversations, setConversations] = useState()
     const [messages, setMessages] = useState()
+    const [newMessageBox, setNewMessageBox] = useState(false) 
     
 
     // fetches
@@ -65,6 +67,12 @@ const Matches = () => {
         setConversationsShown(!conversationsShown) 
     }
 
+    const sendMessage = (match) => {
+        console.log(match.id)
+        console.log(user.id)
+        setNewMessageBox(!newMessageBox)
+    }
+
     return(
         <>
             <Header />
@@ -80,7 +88,7 @@ const Matches = () => {
                 {!loading ? matches.map(match => 
 
                     <Grid item> 
-                        <MatchCard match={match} /> 
+                        <MatchCard sendMessage={sendMessage} user={user} match={match} /> 
                     </Grid>
                     ) : null }
             </Grid>
@@ -93,7 +101,8 @@ const Matches = () => {
                 spacing={3} 
                 style={{marginTop: "10vh"}}
             >
-                {conversationsShown ? 
+                {!newMessageBox ? 
+                conversationsShown ? 
                 !loading ? conversations.map(conversation => 
                         <Grid onClick={() => showMessages(conversation)} item className='chat-item'> 
                             <ConversationCard  conversation={conversation} /> 
@@ -101,7 +110,8 @@ const Matches = () => {
                         ) : 
                         null
                 : 
-                    <ChatBox messages={messages} /> 
+                    <ChatBox messages={messages} /> : 
+                    <NewMessageBox />
                 }
             
             </Grid>
