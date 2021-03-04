@@ -228,3 +228,15 @@ html, body {
   margin-left: 2vh;
 
 }
+
+.new-message-paper{
+padding: 3vh 7vh 3vh 7vh;
+}
+
+.new-message-box{
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 600px;
+  min-height: 200px;
+  height: 200px;
+}

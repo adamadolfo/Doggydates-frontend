@@ -71,6 +71,7 @@ const Matches = () => {
         console.log(match.id)
         console.log(user.id)
         setNewMessageBox(!newMessageBox)
+        
     }
 
     return(
