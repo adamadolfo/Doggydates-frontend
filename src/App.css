@@ -188,14 +188,14 @@ html, body {
 
 .match-options{
   height: 13vh;
-  width: 13vh;
+  width: 16vh;
   z-index: 2;
   position: absolute;
 }
 
-.button-options{
-  height: 5vh;
-  width: 5vh;
+.option-button{
+  height: 7vh;
+  width: 100%;
   font-size: large;
   font-weight: bolder;
 }

@@ -7,10 +7,13 @@ import { orange } from '@material-ui/core/colors';
 const MatchCard = (props) => {
 const [options, setOptions] = useState(false)
 
-    const showOptions = (e) => {
+    const showOptions = () => {
         setOptions(!options)
     }
 
+    const sendMessage = (match) => {
+        console.log(match.id)
+    }
 
     const theme = createMuiTheme({
         palette: {
@@ -30,7 +33,7 @@ const [options, setOptions] = useState(false)
                 options ? 
                     <ThemeProvider theme={theme}>
                         <Paper elevation={8} className="match-options">
-                            <Button className="option-button" variant="outlined" color="primary">
+                            <Button className="option-button" onClick={() => sendMessage(props.match)} variant="outlined" color="primary">
                                 send Message
                             </Button>
                             <Button className="option-button" variant="contained" color="primary"> View Profile </Button>
