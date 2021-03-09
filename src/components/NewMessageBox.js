@@ -3,8 +3,9 @@ import { Paper, Button, Grid } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
+import Header from "./Header";
 
-const NewMessageBox = () => {
+const NewMessageBox = (props) => {
 
 
 
@@ -40,10 +41,14 @@ const NewMessageBox = () => {
               justify="center"
               alignItems="center"
               >
-                    <form style={{width: "99%"}}>
+                    <form onSubmit={(e) => props.postMessage(e)} style={{width: "99%"}}>
+                      <div className="textarea-container">
                         <textarea className="new-message-box" >
-
+                        
                         </textarea>
+                        
+                        <button type="submit"> send </button>
+                      </div>
                     </form> 
             </Grid>
         </Grid>

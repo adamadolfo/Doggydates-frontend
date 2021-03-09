@@ -74,6 +74,11 @@ const Matches = () => {
         
     }
 
+    const postMessage = (e) => {
+        e.preventDefault()
+        console.log(e.target)
+
+    }
     return(
         <>
             <Header />
@@ -113,7 +118,7 @@ const Matches = () => {
                 : 
                     <ChatBox messages={messages} /> :
                  
-                    <NewMessageBox />
+                    <NewMessageBox postMessage={postMessage} />
             
                 }
             
