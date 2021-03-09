@@ -111,8 +111,10 @@ const Matches = () => {
                         ) : 
                         null
                 : 
-                    <ChatBox messages={messages} /> : 
+                    <ChatBox messages={messages} /> :
+                 
                     <NewMessageBox />
+            
                 }
             
             </Grid>

@@ -25,16 +25,26 @@ const NewMessageBox = () => {
             container
             justify="center"
             direction="row" 
+            style={{width: "90%"}}
         >
-            <Grid item>
-                <Paper className="new-message-paper" elevation={5} >
-                    <form>
-                        <h3> New Message </h3>
+            <Grid item
+              style={{width: "90%", backgroundColor: "red"}} 
+              justify="center"
+              alignItems="center"
+              >
+                 <div style={{backgroundColor: "white", height: "100vh"}}>    
+                 </div>
+            </Grid>
+            <Grid item
+              style={{width: "90%"}} 
+              justify="center"
+              alignItems="center"
+              >
+                    <form style={{width: "99%"}}>
                         <textarea className="new-message-box" >
 
                         </textarea>
                     </form> 
-                </Paper>
             </Grid>
         </Grid>
     )

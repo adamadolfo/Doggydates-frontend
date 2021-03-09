@@ -24,7 +24,7 @@ function ChatBox(props) {
             style={{backgroundColor: "white", height: "40vh"}} 
         >
            <Grid item>
-                {props.messages.count > 0 ? props.messages.map(message => <div> {message}</div>) : null}
+                {props.messages.count > 0 ? props.messages.map(message => <div> {message} </div>) : null}
             </Grid>
         </Grid>
         

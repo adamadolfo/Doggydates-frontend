@@ -234,9 +234,14 @@ padding: 3vh 7vh 3vh 7vh;
 }
 
 .new-message-box{
-  max-width: 300px;
-  min-width: 300px;
-  max-height: 600px;
-  min-height: 200px;
-  height: 200px;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+  max-height: 100px;
+  min-height: 100px;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: larger;
 }
