@@ -5,8 +5,13 @@ import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
 import Header from "./Header";
 
-const NewMessageBox = (props) => {
+const Messaging = (props) => {
 
+  const [typedMessage, setTypedMessage] = useState()
+
+  const fillMessage = (e) => {
+    setTypedMessage(e.target.value)
+  } 
 
 
 
@@ -41,9 +46,9 @@ const NewMessageBox = (props) => {
               justify="center"
               alignItems="center"
               >
-                    <form onSubmit={(e) => props.postMessage(e)} style={{width: "99%"}}>
+                    <form onSubmit={(e) => props.postMessage(e, typedMessage)} style={{width: "99%"}}>
                       <div className="textarea-container">
-                        <textarea className="new-message-box" >
+                        <textarea onChange={(e) => fillMessage(e)} className="new-message-box" >
                         
                         </textarea>
                         
@@ -61,4 +66,4 @@ const NewMessageBox = (props) => {
 
 
 
-export default NewMessageBox
+export default Messaging

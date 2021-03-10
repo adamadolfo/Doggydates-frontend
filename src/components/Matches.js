@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import Header from './Header'
 import MatchCard from './MatchCard'
 import ConversationCard from './ConversationCard'
-import NewMessageBox from './NewMessageBox'
+import Messaging from './Messaging'
 import ChatBox from './ChatBox'
 import { Grid } from '@material-ui/core';
 
@@ -19,10 +19,11 @@ const Matches = () => {
     const [conversationsShown, setConversationsShown] = useState(true)
     const [conversations, setConversations] = useState()
     const [messages, setMessages] = useState()
-    const [newMessageBox, setNewMessageBox] = useState(false) 
+    const [newMessageBox, setNewMessageBox] = useState(false)
     
 
-    // fetches
+    ////// fetches
+    /// sets matches are the circular profile picks using matches in hooks
     const getMatches = () => {
         fetch('http://localhost:3001/accepted', {
             method: "POST",
@@ -45,12 +46,13 @@ const Matches = () => {
         .then(r => r.json())
         .then(responseConversations => {
             const convos = Object.entries(responseConversations)
-            setConversations(convos[1])
+            setConversations(convos)
+
             setLoading(false)
         })
     }
 
-    //fetches
+    ////// end of fetches
 
 
     useEffect(() => {
@@ -74,9 +76,16 @@ const Matches = () => {
         
     }
 
-    const postMessage = (e) => {
+    const postMessage = (e, message) => {
         e.preventDefault()
-        console.log(e.target)
+
+        debugger
+
+        const messageObj = {
+            body: message,
+            sender_id: user.id
+            // recipient_id: 
+        }
 
     }
     return(
@@ -109,7 +118,7 @@ const Matches = () => {
             >
                 {!newMessageBox ? 
                 conversationsShown ? 
-                !loading ? conversations.map(conversation => 
+                !loading ? conversations[0].map(conversation => 
                         <Grid onClick={() => showMessages(conversation)} item className='chat-item'> 
                             <ConversationCard  conversation={conversation} /> 
                         </Grid>
@@ -118,7 +127,7 @@ const Matches = () => {
                 : 
                     <ChatBox messages={messages} /> :
                  
-                    <NewMessageBox postMessage={postMessage} />
+                    <Messaging postMessage={postMessage} />
             
                 }
             
