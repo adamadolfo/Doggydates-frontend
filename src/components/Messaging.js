@@ -34,11 +34,11 @@ const Messaging = (props) => {
             style={{width: "90%"}}
         >
             <Grid item
-              style={{width: "90%", backgroundColor: "red"}} 
+              style={{width: "90%"}} 
               justify="center"
               alignItems="center"
               >
-                 <div style={{backgroundColor: "white", height: "100vh"}}>    
+                 <div className="message-display">    
                  </div>
             </Grid>
             <Grid item

@@ -186,7 +186,7 @@ html, body {
   cursor: pointer;
 }
 
-.match-options{
+/* .match-options{
   height: 13vh;
   width: 16vh;
   z-index: 2;
@@ -231,7 +231,7 @@ html, body {
 
 .new-message-paper{
 padding: 3vh 7vh 3vh 7vh;
-}
+} */
 
 .new-message-box{
   width: 100%;
@@ -255,4 +255,11 @@ padding: 3vh 7vh 3vh 7vh;
   position: absolute;
   bottom: .6vh;
   right: .5vh;
+}
+
+.message-display {
+  margin-top: 5vh;
+  min-height: 50vh;
+  outline-style: outset;
+  outline-color: grey;
 }
