@@ -71,6 +71,11 @@ const Matches = () => {
 
     //fires when you click on the user picture
     // match is user clicked
+
+    const changeTheScreen = () => {
+        setChangeScreen(!changeScreen)
+    }
+
     const showChat = (match) => {
         
         if (!loading) {
@@ -81,7 +86,7 @@ const Matches = () => {
                 setTargetedUserMessaging(convoFound)
             }
         }
-        setChangeScreen(!changeScreen)
+        changeTheScreen()
     }
 
    
@@ -105,7 +110,7 @@ const Matches = () => {
                             <Grid item> 
                                 <MatchCard showChat={showChat} user={user} match={match} /> 
                             </Grid>
-                            ) : <Messaging />
+                            ) : <Messaging convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
                         :
                         null
                         }

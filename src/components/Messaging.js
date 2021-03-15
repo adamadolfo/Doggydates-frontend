@@ -14,6 +14,7 @@ const Messaging = (props) => {
   } 
 
 
+  debugger
 
     const theme = createMuiTheme({
         palette: {
@@ -38,7 +39,9 @@ const Messaging = (props) => {
               justify="center"
               alignItems="center"
               >
-                 <div className="message-display">    
+                <Button onClick={props.changeTheScreen} > back </Button>
+                 <div className="message-display">
+                   {props.convo[1][1].map(message => <p> {message} </p>) }    
                  </div>
             </Grid>
             <Grid item
