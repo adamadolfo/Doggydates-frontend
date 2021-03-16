@@ -4,6 +4,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
 import Header from "./Header";
+import userEvent from "@testing-library/user-event";
 
 const Messaging = (props) => {
 
@@ -12,9 +13,6 @@ const Messaging = (props) => {
   const fillMessage = (e) => {
     setTypedMessage(e.target.value)
   } 
-
-
-  debugger
 
     const theme = createMuiTheme({
         palette: {
@@ -41,7 +39,19 @@ const Messaging = (props) => {
               >
                 <Button onClick={props.changeTheScreen} > back </Button>
                  <div className="message-display">
-                   {props.convo[1][1].map(message => <p> {message} </p>) }    
+                   { props.convo[1][1].map(message => {
+
+                    if (message.owner_id == props.user.id) {
+                      return <p className="user-message" > {message.body} </p>
+                    } else {
+                      return <p className="other-message" > {message.body} </p>
+                    }
+
+                   })
+                   
+                   
+                   
+                   }
                  </div>
             </Grid>
             <Grid item

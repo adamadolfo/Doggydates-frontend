@@ -263,3 +263,11 @@ padding: 3vh 7vh 3vh 7vh;
   outline-style: outset;
   outline-color: grey;
 }
+
+.user-message{
+  background-color: blue;
+}
+
+.other-message{
+  background-color: red;
+}

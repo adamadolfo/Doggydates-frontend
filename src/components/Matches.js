@@ -31,6 +31,7 @@ const Matches = () => {
         .then(r => r.json())
         .then(matches => {
             setMatches(matches)
+            setLoading(false)
         })
     }
 
@@ -51,7 +52,6 @@ const Matches = () => {
             const convos = Object.entries(responseConversations)
             setConversations(convos)
             
-            setLoading(false)
         })
     }
 
@@ -62,20 +62,13 @@ const Matches = () => {
 
     ////// end of fetches
 
-
-    // sets if you see conversations in bottom screen
-    // const showMessages = (clickedConversation) => {
-    //     // setMessages(clickedConversation)
-    //     // setConversationsShown(!conversationsShown) 
-    // }
-
-    //fires when you click on the user picture
-    // match is user clicked
-
+    
     const changeTheScreen = () => {
         setChangeScreen(!changeScreen)
     }
-
+    
+    //fires when you click on the user picture
+    // match is user clicked
     const showChat = (match) => {
         
         if (!loading) {
@@ -104,14 +97,20 @@ const Matches = () => {
              >
                 
                 {!loading ? 
-                    !changeScreen ?
+                
+
+                    !changeScreen 
+                    ?
                         matches.map(match => 
+
 
                             <Grid item> 
                                 <MatchCard showChat={showChat} user={user} match={match} /> 
                             </Grid>
-                            ) : <Messaging convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
-                        :
+                            )     
+                                  : <Messaging user={user} convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
+                        
+                          :
                         null
                         }
             </Grid>
