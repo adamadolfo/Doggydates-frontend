@@ -66,6 +66,23 @@ const Matches = () => {
     const changeTheScreen = () => {
         setChangeScreen(!changeScreen)
     }
+
+    const createConversationIfNone = (match) => {
+
+        const convoObj = {
+            sender_id: user.id, 
+            recipient_id: match.id
+
+        }
+
+        fetch('http://localhost:3001/conversations', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify()
+        })
+        .then(r => r.json())
+        .then()
+    }
     
     //fires when you click on the user picture
     // match is user clicked
@@ -74,7 +91,7 @@ const Matches = () => {
         if (!loading) {
             const convoFound = conversations.find(conversation => parseInt(conversation[0]) == match.id )
             if (convoFound == undefined) {
-                alert("nope")
+                createConversationIfNone(match)
             } else {
                 setTargetedUserMessaging(convoFound)
             }
@@ -82,7 +99,27 @@ const Matches = () => {
         changeTheScreen()
     }
 
-   
+   const postMessage = (e, messageBody) => {
+        e.preventDefault()
+
+        const messageObj = {
+            owner_id: user.id, 
+            body: messageBody,
+            conversation_id: null
+        }
+
+        fetch('http://localhost:3001/messages', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(messageObj)
+        })
+        .then(r => r.json())
+        .then(responseConversations => {
+            const convos = Object.entries(responseConversations)
+            setConversations(convos)
+            
+        })
+   }
 
     return(
         <>
@@ -108,7 +145,7 @@ const Matches = () => {
                                 <MatchCard showChat={showChat} user={user} match={match} /> 
                             </Grid>
                             )     
-                                  : <Messaging user={user} convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
+                                  : <Messaging postMessage={postMessage} user={user} convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
                         
                           :
                         null
