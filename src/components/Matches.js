@@ -78,10 +78,12 @@ const Matches = () => {
         fetch('http://localhost:3001/conversations', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify()
+            body: JSON.stringify(convoObj)
         })
         .then(r => r.json())
-        .then()
+        .then(data => {
+            setTargetedUserMessaging(data)
+        })
     }
     
     //fires when you click on the user picture
@@ -89,12 +91,14 @@ const Matches = () => {
     const showChat = (match) => {
         
         if (!loading) {
-            const convoFound = conversations.find(conversation => parseInt(conversation[0]) == match.id )
-            if (convoFound == undefined) {
-                createConversationIfNone(match)
-            } else {
-                setTargetedUserMessaging(convoFound)
-            }
+            // const convoFound = conversations.find(conversation => parseInt(conversation[0]) == match.id )
+            // if (convoFound == undefined) {
+            //     createConversationIfNone(match)
+            // } else {
+            //     setTargetedUserMessaging(convoFound)
+            // }
+            createConversationIfNone(match)
+            
         }
         changeTheScreen()
     }
@@ -117,7 +121,6 @@ const Matches = () => {
         .then(responseConversations => {
             const convos = Object.entries(responseConversations)
             setConversations(convos)
-            
         })
    }
 

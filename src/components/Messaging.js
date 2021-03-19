@@ -10,9 +10,15 @@ const Messaging = (props) => {
 
   const [typedMessage, setTypedMessage] = useState()
 
+  useEffect(() => {
+
+  }, [])
+
   const fillMessage = (e) => {
     setTypedMessage(e.target.value)
+    console.log(props.convo[0].messages)
   } 
+
 
     const theme = createMuiTheme({
         palette: {
@@ -39,8 +45,10 @@ const Messaging = (props) => {
               >
                 <Button onClick={props.changeTheScreen} > back </Button>
                  <div className="message-display">
-                   { props.convo[1][1].map(message => {
-
+                   {
+                    props.convo !== undefined ? 
+          
+                   props.convo[0].messages.map(message => {
                     if (message.owner_id == props.user.id) {
                       return <p className="user-message" > {message.body} </p>
                     } else {
@@ -48,7 +56,7 @@ const Messaging = (props) => {
                     }
 
                    })
-                   
+                   : null
                    
                    
                    }
