@@ -34,12 +34,6 @@ const Matches = () => {
             setLoading(false)
         })
     }
-
-    ///sets conversations in a format of 
-    // [ 
-    //  [owner_id, [ {owner} , [messages] ] ] , 
-    //  [owner_id, [ {owner} , [messages] ] ] 
-    //]
     
     const getConversations = () => {
         fetch('http://localhost:3001/find-conversations', {
@@ -82,6 +76,7 @@ const Matches = () => {
         })
         .then(r => r.json())
         .then(data => {
+            console.log(data)
             setTargetedUserMessaging(data)
         })
     }
@@ -105,8 +100,7 @@ const Matches = () => {
 
    const postMessage = (e, messageBody) => {
         e.preventDefault()
-
-        console.log(targetedUserMessaging)
+        
         const messageObj = {
             owner_id: user.id, 
             body: messageBody,
@@ -120,7 +114,8 @@ const Matches = () => {
         })
         .then(r => r.json())
         .then(responseConversations => {
-            const convos = Object.entries(responseConversations)
+            const convos = [responseConversations]
+            
             setTargetedUserMessaging(convos)
         })
    }
