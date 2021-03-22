@@ -16,7 +16,6 @@ const Messaging = (props) => {
 
   const fillMessage = (e) => {
     setTypedMessage(e.target.value)
-    console.log(props.convo[0].messages)
   } 
 
 

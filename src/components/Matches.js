@@ -106,10 +106,11 @@ const Matches = () => {
    const postMessage = (e, messageBody) => {
         e.preventDefault()
 
+        console.log(targetedUserMessaging)
         const messageObj = {
             owner_id: user.id, 
             body: messageBody,
-            conversation_id: null
+            conversation_id: targetedUserMessaging[0].id
         }
 
         fetch('http://localhost:3001/messages', {
@@ -120,7 +121,7 @@ const Matches = () => {
         .then(r => r.json())
         .then(responseConversations => {
             const convos = Object.entries(responseConversations)
-            setConversations(convos)
+            setTargetedUserMessaging(convos)
         })
    }
 
