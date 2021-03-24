@@ -11,9 +11,10 @@ const DogCard = (props) => {
             // align="center"
             justify="center"
             direction="row"
-            id="dog-card"
+            // id="dog-card"
+            className="owner-container"
             >
-                <Grid item>
+                <Grid item >
                     <img src={props.dog.img_url} id="dog-image" />
                 </Grid>
                 <Grid item>

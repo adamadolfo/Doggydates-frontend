@@ -37,7 +37,12 @@ const Swipees = (props) => {
                     <div className="answer"> {props.owner.gender_preference} </div>
                     <div className="prompt"> How far are you willing to Travel? </div>
                     <div className="answer"> {props.owner.willing_mile_radius} </div>
+
+                    
+
                 </Grid>
+
+                <div style={{backgroundColor: "red", height: "300px"}} > { dogs.map(dog => <p> {dog.name} </p>) } </div>
 
                  <Grid item  >
                     <div>{ dogs.map(dog => <DogCard dog={dog}/>) } </div>

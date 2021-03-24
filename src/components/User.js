@@ -17,7 +17,6 @@ const User = (props) => {
         // alignItems="center"
         justify="center"
         direction="row"
-        className="swipe-container"
         >
           
             <Grid item className="owner-container">

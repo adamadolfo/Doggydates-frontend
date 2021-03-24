@@ -46,16 +46,15 @@ html, body {
   margin: 1%;
 }
 
-.swipe-container {
-  
-}
+
 
 .owner-container {
   max-width: 600px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.52);
-  margin-right: 10%;
+  margin: 10%;
+  height: 900px;
 }
 
 .swipee {
