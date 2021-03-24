@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import { orange } from '@material-ui/core/colors';
 import Header from "./Header";
 import userEvent from "@testing-library/user-event";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 const Messaging = (props) => {
 
@@ -39,19 +40,24 @@ const Messaging = (props) => {
         >
             <Grid item
               style={{width: "90%"}} 
-              justify="center"
-              alignItems="center"
               >
-                <Button onClick={props.changeTheScreen} > back </Button>
-                 <div className="message-display">
+                <ArrowBackIosIcon style={{fontSize: "3rem", margin: "2vh", cursor: "pointer"}} onClick={props.changeTheScreen} />
+                 <Grid container direction="column" className="message-display">
                    {
                     props.convo !== undefined ? 
           
                    props.convo[0].messages.map(message => {
                     if (message.owner_id == props.user.id) {
-                      return <p className="user-message" > {message.body} </p>
+                      return <Grid 
+                        item 
+                        alignItems="flex-end"
+                        >
+                          <div className="user-message" > {message.body} </div>
+                      </Grid>
                     } else {
-                      return <p className="other-message" > {message.body} </p>
+                      return <Grid item>
+                      <p className="other-message" > {message.body} </p>
+                    </Grid>
                     }
 
                    })
@@ -59,7 +65,7 @@ const Messaging = (props) => {
                    
                    
                    }
-                 </div>
+                 </Grid>
             </Grid>
             <Grid item
               style={{width: "90%"}} 
