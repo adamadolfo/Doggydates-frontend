@@ -1,4 +1,4 @@
-import react, {useEffect} from "react"
+import react, {useState} from "react"
 import DogCard from './DogCard'
 import { Grid } from '@material-ui/core';
 import SentimentVerySatisfiedTwoToneIcon from '@material-ui/icons/SentimentVerySatisfiedTwoTone';
@@ -6,7 +6,18 @@ import SentimentVeryDissatisfiedTwoToneIcon from '@material-ui/icons/SentimentVe
 
 
 const Swipees = (props) => {
+
+    const [dogUnclicked, setDogUnclicked] = useState(true)
+    const [dog, setDog] = useState()
+
     let dogs = props.owner.dogs
+
+    const dogClicked = (dog) => {
+        setDog(dog)
+        setDogUnclicked(!dogUnclicked)
+
+    }
+
     return(
         <>
             <Grid 
@@ -17,16 +28,17 @@ const Swipees = (props) => {
             direction="row"
             className="swipe-container"
             >
-              
                 <Grid item className="owner-container">
+              {dogUnclicked ? 
+              <div>
                     <img src={props.owner.image_url} className="swipee" />
-                    <div className="owner-name"> {props.owner.name} 
+                    <div className="name"> {props.owner.name} 
                         <div className="age"> {props.owner.age} </div>
                         <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
                         <div className="dog-tab-holder">
-                        { dogs.map(dog => 
-                        <img src={dog.img_url} className="dog-tab"  /> 
-                        ) }
+                            { dogs.map(dog => 
+                                <img onClick={() => dogClicked(dog)} src={dog.img_url} className="dog-tab"  /> 
+                            ) }
                         </div>
 
                         <div style={{textAlign: "center"}}> <SentimentVerySatisfiedTwoToneIcon onClick={props.like} style={{fontSize: "5rem", color: "orange", marginRight: "20%", cursor: "pointer"}} /> <SentimentVeryDissatisfiedTwoToneIcon onClick={props.dislike} style={{fontSize: "5rem", color: "red", cursor: "pointer"}} /> </div>
@@ -43,15 +55,16 @@ const Swipees = (props) => {
                     <div className="answer"> {props.owner.gender_preference} </div>
                     <div className="prompt"> How far are you willing to Travel? </div>
                     <div className="answer"> {props.owner.willing_mile_radius} </div>
-
+                </div>
+                    :
                     
-
+                    <DogCard dog={dog} />
+                    
+                }
                 </Grid>
 
 
-                 {/* <Grid item  >
-                    <div>{ dogs.map(dog => <DogCard dog={dog}/>) } </div>
-                </Grid>   */}
+                 
                 
             </Grid>
         </> 
