@@ -23,6 +23,12 @@ const Swipees = (props) => {
                     <div className="owner-name"> {props.owner.name} 
                         <div className="age"> {props.owner.age} </div>
                         <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
+                        <div className="dog-tab-holder">
+                        { dogs.map(dog => 
+                        <img src={dog.img_url} className="dog-tab"  /> 
+                        ) }
+                        </div>
+
                         <div style={{textAlign: "center"}}> <SentimentVerySatisfiedTwoToneIcon onClick={props.like} style={{fontSize: "5rem", color: "orange", marginRight: "20%", cursor: "pointer"}} /> <SentimentVeryDissatisfiedTwoToneIcon onClick={props.dislike} style={{fontSize: "5rem", color: "red", cursor: "pointer"}} /> </div>
                     </div>
                     <div className="prompt"> Experience as an owner? </div>
@@ -42,11 +48,10 @@ const Swipees = (props) => {
 
                 </Grid>
 
-                <div style={{backgroundColor: "red", height: "300px"}} > { dogs.map(dog => <p> {dog.name} </p>) } </div>
 
-                 <Grid item  >
+                 {/* <Grid item  >
                     <div>{ dogs.map(dog => <DogCard dog={dog}/>) } </div>
-                </Grid>  
+                </Grid>   */}
                 
             </Grid>
         </> 

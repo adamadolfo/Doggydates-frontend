@@ -53,8 +53,18 @@ html, body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.52);
-  margin: 10%;
-  height: 900px;
+
+}
+
+.dog-tab {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 50%;
+  margin: 1%;
+}
+
+.dog-tab-holder {
+  text-align: center;
 }
 
 .swipee {
