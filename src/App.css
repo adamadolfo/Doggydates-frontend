@@ -219,34 +219,69 @@ html, body {
 }
 
 .message-display {
+  width: 600px;
   min-height: 50vh;
   outline-style: outset;
   outline-color: grey;
 }
 
 .user-message{
-  font-size: x-large;
+  font-size: 1.5rem;
   padding: 1vh;
   background-color: orange;
   border-radius: 1vh;
   width: fit-content;
-  max-width: 20vh;
-  flex: end;
+  max-width: 30%;
   text-align: center;
   color: white;
   margin: .5vh;
+  float: right;
+  margin: 1vh;
+  margin-right: 2vh;
 }
 
 .other-message{
-  font-size: x-large;
+  font-size: 1.5rem;
   padding: 1vh;
   background-color: rgb(170, 170, 170);
   border-radius: 1vh;
   width: fit-content;
-  max-width: 20vh;
-  flex: end;
+  max-width: 22vh;
   text-align: center;
   color: white;
-  margin: .5vh;
+  margin: 1vh;
+  margin-left: 4vh;
+
+}
+
+@media (max-width: 500px) {
+  .user-message{
+    font-size: 1.5rem;
+    padding: 1vh;
+    background-color: orange;
+    border-radius: 1vh;
+    width: fit-content;
+    max-width: 30%;
+    text-align: center;
+    color: white;
+    margin: .5vh;
+    float: right;
+    margin: 1vh;
+    margin-right: 2vh;
+  }
+  
+  .other-message{
+    font-size: 1.5rem;
+    padding: 1vh;
+    background-color: rgb(170, 170, 170);
+    border-radius: 1vh;
+    width: fit-content;
+    max-width: 22vh;
+    text-align: center;
+    color: white;
+    margin: 1vh;
+    margin-left: 4vh;
+  
+  }
 
 }

@@ -36,26 +36,25 @@ const Messaging = (props) => {
             container
             justify="center"
             direction="row" 
-            style={{width: "90%"}}
+            style={{width: "100%"}}
         >
             <Grid item
-              style={{width: "90%"}} 
+              style={{width: "100%"}} 
               >
                 <ArrowBackIosIcon style={{fontSize: "3rem", margin: "2vh", cursor: "pointer"}} onClick={props.changeTheScreen} />
-                 <Grid container direction="column" className="message-display">
+                 <Grid container direction="row" className="message-display">
                    {
                     props.convo !== undefined ? 
           
                    props.convo[0].messages.map(message => {
                     if (message.owner_id == props.user.id) {
                       return <Grid 
-                        item 
-                        alignItems="flex-end"
+                        item xs={12} 
                         >
                           <div className="user-message" > {message.body} </div>
                       </Grid>
                     } else {
-                      return <Grid item>
+                      return <Grid xs={12} item>
                       <p className="other-message" > {message.body} </p>
                     </Grid>
                     }
