@@ -3,6 +3,7 @@ import DogCard from './DogCard'
 import { Grid } from '@material-ui/core';
 import SentimentVerySatisfiedTwoToneIcon from '@material-ui/icons/SentimentVerySatisfiedTwoTone';
 import SentimentVeryDissatisfiedTwoToneIcon from '@material-ui/icons/SentimentVeryDissatisfiedTwoTone';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 const Swipees = (props) => {
@@ -12,11 +13,15 @@ const Swipees = (props) => {
 
     let dogs = props.owner.dogs
 
+    const shownContent = () => {
+        setDogUnclicked(!dogUnclicked)
+    }
+
     const dogClicked = (dog) => {
         setDog(dog)
-        setDogUnclicked(!dogUnclicked)
-
+        shownContent()
     }
+
 
     return(
         <>
@@ -28,10 +33,11 @@ const Swipees = (props) => {
             direction="row"
             className="swipe-container"
             >
-                <Grid item className="owner-container">
               {dogUnclicked ? 
+                <Grid item className="owner-container">
               <div>
                     <img src={props.owner.image_url} className="swipee" />
+                    
                     <div className="name"> {props.owner.name} 
                         <div className="age"> {props.owner.age} </div>
                         <div className="city-state" >{props.owner.city} {props.owner.state} </div>
@@ -56,13 +62,15 @@ const Swipees = (props) => {
                     <div className="prompt"> How far are you willing to Travel? </div>
                     <div className="answer"> {props.owner.willing_mile_radius} </div>
                 </div>
-                    :
-                    
-                    <DogCard dog={dog} />
-                    
-                }
                 </Grid>
-
+                    :
+                    <div>
+                        <ArrowBackIcon 
+                        onClick={shownContent} 
+                        style={{fontSize: "3rem", color: "black"}} />
+                        <DogCard dog={dog} />
+                    </div>
+                }
 
                  
                 

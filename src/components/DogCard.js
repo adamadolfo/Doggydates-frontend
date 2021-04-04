@@ -6,7 +6,6 @@ const DogCard = (props) => {
     return(
         <div id="dog-card">
             <img src={props.dog.img_url} id="dog-image" />
-        
             <div className="name">  {props.dog.name} 
                 <div className="age" >{props.dog.age}  <span> years old</span> </div>
                 <div style={{fontSize: "1.5rem", marginTop: "5%"}}> {props.dog.breed} </div>
