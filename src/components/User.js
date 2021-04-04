@@ -13,7 +13,7 @@ const User = (props) => {
         <>
         <Grid 
         container
-        spacing={3}
+        spacing={8}
         // alignItems="center"
         justify="center"
         direction="row"
@@ -21,7 +21,7 @@ const User = (props) => {
           
             <Grid item className="owner-container">
                 <img src={props.owner.image_url} className="swipee" />
-                <div className="owner-name"> {props.owner.name} 
+                <div className="name"> {props.owner.name} 
                     <div className="age"> {props.owner.age} </div>
                     <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
                 </div>
@@ -38,6 +38,7 @@ const User = (props) => {
                 <div className="prompt"> How far are you willing to Travel? </div>
                 <div className="answer"> {props.owner.willing_mile_radius} </div>
             </Grid>
+
             <Grid item >
                 <div> {dogs.map(dog => <DogCard dog={dog}/>)}</div>
             </Grid>
