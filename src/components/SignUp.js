@@ -13,11 +13,22 @@ function SignUp(props) {
 
 
     // react code
+   const [name, setName] = useState("")
+   const [age, setAge] = useState("")
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
    const [passwordConfirm, setPasswordConfirm] = useState("")
    
    const history = useHistory();
+
+
+   const handleName = (e) => {
+    setName(e.target.value)
+    }
+
+    const handleAge = (e) => {
+        setAge(e.target.value)
+    }
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
@@ -38,7 +49,9 @@ function SignUp(props) {
         if (password === passwordConfirm) {
             const owner = { 
                 email: email, 
-                password: password
+                password: password,
+                name: name,
+                age: age
             };
             console.log(owner)
             const response = await fetch("http://localhost:3001/owners", {
@@ -68,6 +81,8 @@ function SignUp(props) {
         <div style={{marginTop: "30%"}}>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div style={{fontSize: "1.25rem", margin: "10px", height: "100%"}}>Sign Up</div>
+                <TextField style={styles} onChange={(e) => handleName(e)} value={name} id="outlined-basic" label="Name" variant="outlined" />
+                <TextField style={styles} onChange={(e) => handleAge(e)} value={age} id="outlined-basic" label="Age" variant="outlined" />
                 <TextField style={styles} onChange={(e) => handleEmail(e)} value={email} id="outlined-basic" label="Email" variant="outlined" />
                 <TextField style={styles} onChange={(e) => handlePassword(e)} value={password} type="password" id="outlined-basic" label="Password" variant="outlined" />
                 <TextField style={styles} onChange={(e) => handlePasswordConfirm(e)} value={passwordConfirm} type="password" id="outlined-basic" label="Confirm Password" variant="outlined" />

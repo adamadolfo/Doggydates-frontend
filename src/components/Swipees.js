@@ -34,7 +34,7 @@ const Swipees = (props) => {
                     <img src={props.owner.image_url} className="swipee" />
                     <div className="name"> {props.owner.name} 
                         <div className="age"> {props.owner.age} </div>
-                        <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
+                        <div className="city-state" >{props.owner.city} {props.owner.state} </div>
                         <div className="dog-tab-holder">
                             { dogs.map(dog => 
                                 <img onClick={() => dogClicked(dog)} src={dog.img_url} className="dog-tab"  /> 

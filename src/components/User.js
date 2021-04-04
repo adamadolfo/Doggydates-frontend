@@ -23,7 +23,7 @@ const User = (props) => {
                 <img src={props.owner.image_url} className="swipee" />
                 <div className="name"> {props.owner.name} 
                     <div className="age"> {props.owner.age} </div>
-                    <div className="city-state" >{props.owner.city}, {props.owner.state} </div>
+                    <div className="city-state" >{props.owner.city} {props.owner.state} </div>
                 </div>
                 <div className="prompt"> Experience as an owner? </div>
                 <div className="answer"> {props.owner.owner_exp} </div>
