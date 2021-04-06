@@ -67,7 +67,7 @@ const Swipees = (props) => {
                     <div>
                         <ArrowBackIcon 
                         onClick={shownContent} 
-                        style={{fontSize: "3rem", color: "black"}} />
+                        style={{fontSize: "3rem", color: "black", cursor: "pointer"}} />
                         <DogCard dog={dog} />
                     </div>
                 }

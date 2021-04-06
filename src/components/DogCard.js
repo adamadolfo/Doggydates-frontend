@@ -5,7 +5,13 @@ import { Grid, Paper } from '@material-ui/core';
 const DogCard = (props) => {
     return(
         <div id="dog-card">
-            <img src={props.dog.img_url} id="dog-image" />
+            {
+                props.dog.img_url ? 
+                <img src={props.dog.img_url} id="dog-image" /> :
+                <img src="https://i.imgur.com/9eOYay8.gif" />
+
+
+            }
             <div className="name">  {props.dog.name} 
                 <div className="age" >{props.dog.age}  <span> years old</span> </div>
                 <div style={{fontSize: "1.5rem", marginTop: "5%"}}> {props.dog.breed} </div>

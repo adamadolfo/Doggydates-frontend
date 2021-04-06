@@ -87,7 +87,7 @@ const Profile = () => {
     return(
         <>
             <Header />
-            { drawer ? <Drawer logout={logout} showProfile={showProfile} showDrawer={showDrawer} editProfile={editProfile} addNewDog={addNewDog} editDog={editDog} /> : <MenuIcon onClick={showDrawer} style={{fontSize: "3rem", cursor: "pointer"}}/> }
+            <Drawer logout={logout} showProfile={showProfile} showDrawer={showDrawer} editProfile={editProfile} addNewDog={addNewDog} editDog={editDog} /> 
 
             {shownComponent()}
 
