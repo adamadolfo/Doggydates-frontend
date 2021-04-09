@@ -12,13 +12,12 @@ import { Grid } from '@material-ui/core';
 
 const Drawer = (props) => {
     return(
-        // add border radius and some texture to each option. maybe a hover effect
         <Grid container direction="row" spacing={4} className="drawer" >
-            <Grid item className="menu-option" onClick={props.showProfile}> <AccountCircleIcon style={{fontSize: "2rem"}}/> Profile  </Grid>
-            <Grid item className="menu-option" onClick={props.editProfile}> <EditIcon style={{fontSize: "2rem"}}/> Edit Profile  </Grid>
-            <Grid item className="menu-option" onClick={props.addNewDog}> <AddCircleRoundedIcon style={{fontSize: "2rem"}} /> Add Dog </Grid>
-            <Grid item className="menu-option" onClick={props.editDog}> <PetsIcon style={{fontSize: "2rem"}} /> Edit Dog </Grid>
-            <Grid item className="menu-option" onClick={props.logout}> <ExitToAppRoundedIcon style={{fontSize: "2rem"}} /> Logout </Grid>
+            <Grid item className="menu-option" onClick={props.showProfile}> <AccountCircleIcon style={{fontSize: "2rem"}}/> <div>Profile</div>  </Grid>
+            <Grid item className="menu-option" onClick={props.editProfile}> <EditIcon style={{fontSize: "2rem"}}/> <div>Edit Profile</div>  </Grid>
+            <Grid item className="menu-option" onClick={props.addNewDog}> <AddCircleRoundedIcon style={{fontSize: "2rem"}} /> <div>Add Dog</div> </Grid>
+            <Grid item className="menu-option" onClick={props.editDog}> <PetsIcon style={{fontSize: "2rem"}} /> <div>Edit Dog</div> </Grid>
+            <Grid item className="menu-option" onClick={props.logout}> <ExitToAppRoundedIcon style={{fontSize: "2rem"}} /> <div>Logout</div> </Grid>
         </Grid>
     )
 }

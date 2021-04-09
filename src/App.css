@@ -147,15 +147,20 @@ html, body {
 /* menu drawer */
 
 .drawer {
-  background-color: black;
-  height: 7vh;
+  background-color: rgb(51, 51, 51);
+  height: auto;
   border-radius: 10px;
   width: 100%;
 }
 
+
+
 .menu-option {
   color: white;
   cursor: pointer;
+  padding: 2vh;
+  text-align: center;
+  margin: 1vh;
 }
 
 .menu-option:hover  {
