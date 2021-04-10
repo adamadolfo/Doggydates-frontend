@@ -12,7 +12,7 @@ import { Grid } from '@material-ui/core';
 
 const Drawer = (props) => {
     return(
-        <Grid container direction="row" spacing={4} className="drawer" >
+        <Grid container direction="row" spacing={2} className="drawer" >
             <Grid item className="menu-option" onClick={props.showProfile}> <AccountCircleIcon style={{fontSize: "2rem"}}/> <div>Profile</div>  </Grid>
             <Grid item className="menu-option" onClick={props.editProfile}> <EditIcon style={{fontSize: "2rem"}}/> <div>Edit Profile</div>  </Grid>
             <Grid item className="menu-option" onClick={props.addNewDog}> <AddCircleRoundedIcon style={{fontSize: "2rem"}} /> <div>Add Dog</div> </Grid>

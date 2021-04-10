@@ -17,6 +17,7 @@ const User = (props) => {
         // alignItems="center"
         justify="center"
         direction="row"
+        style={{marginTop: "5vh"}}
         >
           
             <Grid item className="owner-container">
