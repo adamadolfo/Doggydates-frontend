@@ -151,6 +151,7 @@ const EditDog = (props) => {
     container
     justify="center"
     direction="row"
+    style={{marginTop: "3.75vh"}}
     >
         <Grid item
         >
