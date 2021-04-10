@@ -30,6 +30,7 @@ const Matches = () => {
         })
         .then(r => r.json())
         .then(matches => {
+            console.log(matches)
             setMatches(matches)
             setLoading(false)
         })
@@ -43,6 +44,7 @@ const Matches = () => {
         })
         .then(r => r.json())
         .then(responseConversations => {
+            console.log(responseConversations)
             const convos = Object.entries(responseConversations)
             setConversations(convos)
             
@@ -129,7 +131,7 @@ const Matches = () => {
              direction="row"
              justify="center"
              alignItems="center" 
-             style={{backgroundColor: 'white'}}
+             style={{backgroundColor: 'white', marginTop: ".1vh"}}
              >
                 
                 {!loading ? 
@@ -137,10 +139,14 @@ const Matches = () => {
 
                     !changeScreen 
                     ?
+
+                        matches.count == 0 ? 
+                        <div> You have no connections yet. Happy swiping! </div> 
+                        :
                         matches.map(match => 
 
 
-                            <Grid item> 
+                            <Grid item > 
                                 <MatchCard showChat={showChat} user={user} match={match} /> 
                             </Grid>
                             )     

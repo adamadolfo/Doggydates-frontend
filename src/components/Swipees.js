@@ -32,6 +32,7 @@ const Swipees = (props) => {
             justify="center"
             direction="row"
             className="swipe-container"
+            style={{marginTop: "2vh"}}
             >
               {dogUnclicked ? 
                 <Grid item className="owner-container">
