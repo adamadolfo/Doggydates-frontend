@@ -18,6 +18,7 @@ const Matches = () => {
     const [conversations, setConversations] = useState()
     const [targetedUserMessaging, setTargetedUserMessaging] = useState()
     const [changeScreen, setChangeScreen] = useState(false)
+    const [clearText, setClearText] = useState(false)
     
 
     ////// fetches
@@ -78,7 +79,6 @@ const Matches = () => {
         })
         .then(r => r.json())
         .then(data => {
-            console.log(data)
             setTargetedUserMessaging(data)
         })
     }
@@ -119,7 +119,9 @@ const Matches = () => {
             const convos = [responseConversations]
             
             setTargetedUserMessaging(convos)
+            setClearText(true)
         })
+        
    }
 
     return(
@@ -140,7 +142,7 @@ const Matches = () => {
                     !changeScreen 
                     ?
 
-                        matches.count == 0 ? 
+                        matches.length == 0 ? 
                         <div> You have no connections yet. Happy swiping! </div> 
                         :
                         matches.map(match => 
@@ -150,7 +152,7 @@ const Matches = () => {
                                 <MatchCard showChat={showChat} user={user} match={match} /> 
                             </Grid>
                             )     
-                                  : <Messaging postMessage={postMessage} user={user} convo={targetedUserMessaging} changeTheScreen={changeTheScreen}/>
+                                  : <Messaging postMessage={postMessage} user={user} convo={targetedUserMessaging} changeTheScreen={changeTheScreen} clearText={clearText}/>
                         
                           :
                         null

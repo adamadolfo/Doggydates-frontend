@@ -12,8 +12,15 @@ const Messaging = (props) => {
   const [typedMessage, setTypedMessage] = useState()
 
   useEffect(() => {
+    clear()
+  }, [props])
 
-  }, [])
+  const clear = () => {
+    props.clearText ? 
+    setTypedMessage("")
+    :
+    setTypedMessage("")
+  }
 
   const fillMessage = (e) => {
     setTypedMessage(e.target.value)
@@ -41,7 +48,7 @@ const Messaging = (props) => {
             <Grid item
               style={{width: "100%"}} 
               >
-                <ArrowBackIosIcon style={{fontSize: "3rem", margin: "2vh", cursor: "pointer"}} onClick={props.changeTheScreen} />
+                <ArrowBackIosIcon style={{fontSize: "3rem", margin: "5vh", cursor: "pointer"}} onClick={props.changeTheScreen} />
                  <Grid container direction="row" className="message-display">
                    {
                     props.convo !== undefined ? 
@@ -67,11 +74,11 @@ const Messaging = (props) => {
                  </Grid>
             </Grid>
             <Grid item
-              style={{width: "90%"}} 
+              style={{width: "100%", padding: "3vh"}} 
               justify="center"
               alignItems="center"
               >
-                    <form onSubmit={(e) => props.postMessage(e, typedMessage)} style={{width: "99%"}}>
+                    <form onSubmit={(e) => props.postMessage(e, typedMessage)} style={{width: "100%"}}>
                       <div className="textarea-container">
                         <textarea onChange={(e) => fillMessage(e)} className="new-message-box" >
                         
