@@ -50,7 +50,7 @@ const Swipees = (props) => {
 
                         <div style={{textAlign: "center"}}> <SentimentVerySatisfiedTwoToneIcon onClick={props.like} style={{fontSize: "5rem", color: "orange", marginRight: "20%", cursor: "pointer"}} /> <SentimentVeryDissatisfiedTwoToneIcon onClick={props.dislike} style={{fontSize: "5rem", color: "red", cursor: "pointer"}} /> </div>
                     </div>
-                    <div className="prompt"> Experience as an owner? </div>
+                    {props.owner.owner_exp ? <div className="prompt"> Experience as an owner? </div> : null}
                     <div className="answer"> {props.owner.owner_exp} </div>
                     <div className="prompt"> What are you looking forward to doing with your dog(s) and friend?  </div>
                     <div className="answer"> {props.owner.looking_for} </div>

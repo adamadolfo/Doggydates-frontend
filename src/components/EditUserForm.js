@@ -203,7 +203,7 @@ const EditUserForm = (props) => {
                                         <option value="WY">WY</option>
                                     </Select>
                             </FormControl>
-                            <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL)" variant="outlined" />
+                            <TextField onChange={(e) => handleImage(e)} value={image} style={styles} id="outlined-basic" label="Image (URL for now)" variant="outlined" />
                             <TextField onChange={(e) => handleExperience(e)} value={experience} style={styles} id="outlined-basic" label="Owner Experience" variant="outlined" />
                             <FormControl variant="outlined">
                                 <InputLabel style={{padding: "10px"}} htmlFor="outlined-age-native-simple">Willing to travel</InputLabel>
