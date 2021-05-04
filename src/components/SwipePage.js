@@ -11,7 +11,7 @@ const SwipePage = () => {
         id: loggedInUser.id
     }
     useEffect(() => {
-        fetch('http://localhost:3001/feed', {
+        fetch('https://dogdates.herokuapp.com/feed', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -38,7 +38,7 @@ const SwipePage = () => {
             clicked: randomOwner.id,
             option: "yes"
         }
-        fetch('http://localhost:3001/swipe', {
+        fetch('https://dogdates.herokuapp.com/swipe', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(matchObj)
@@ -57,7 +57,7 @@ const SwipePage = () => {
             clicked: randomOwner.id,
             option: "you can't sit with us"
         }
-        fetch('http://localhost:3001/swipe', {
+        fetch('https://dogdates.herokuapp.com/swipe', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(matchObj)

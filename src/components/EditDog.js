@@ -112,7 +112,7 @@ const EditDog = (props) => {
                 age: age
             }
     
-            const response = await fetch(`http://localhost:3001/dogs/${parseInt(id)}`, {
+            const response = await fetch(`https://dogdates.herokuapp.com/dogs/${parseInt(id)}`, {
                 method: "PATCH",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dogInfo)

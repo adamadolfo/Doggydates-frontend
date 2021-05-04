@@ -54,7 +54,7 @@ function SignUp(props) {
                 age: age
             };
             console.log(owner)
-            const response = await fetch("http://localhost:3001/owners", {
+            const response = await fetch("https://dogdates.herokuapp.com/owners", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(owner)

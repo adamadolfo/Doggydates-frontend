@@ -101,7 +101,7 @@ const AddDog = (props) => {
             age: age
         }
 
-        const response = await fetch("http://localhost:3001/dogs", {
+        const response = await fetch("https://dogdates.herokuapp.com/dogs", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dogInfo)
