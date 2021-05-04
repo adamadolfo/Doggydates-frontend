@@ -24,7 +24,7 @@ const Matches = () => {
     ////// fetches
     /// sets matches are the circular profile picks using matches in hooks
     const getMatches = () => {
-        fetch('https://dogdates.herokuapp.com/accepted', {
+        fetch('https://dogdates-api.herokuapp.com/accepted', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -38,7 +38,7 @@ const Matches = () => {
     }
     
     const getConversations = () => {
-        fetch('https://dogdates.herokuapp.com/find-conversations', {
+        fetch('https://dogdates-api.herokuapp.com/find-conversations', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -72,7 +72,7 @@ const Matches = () => {
 
         }
 
-        fetch('https://dogdates.herokuapp.com/conversations', {
+        fetch('https://dogdates-api.herokuapp.com/conversations', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(convoObj)
@@ -109,7 +109,7 @@ const Matches = () => {
             conversation_id: targetedUserMessaging[0].id
         }
 
-        fetch('https://dogdates.herokuapp.com/messages', {
+        fetch('https://dogdates-api.herokuapp.com/messages', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(messageObj)

@@ -40,7 +40,7 @@ function Welcome() {
             password: password
         };
 
-        const response = await fetch("https://dogdates.herokuapp.com/login", {
+        const response = await fetch("https://dogdates-api.herokuapp.com/login", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(owner)

@@ -89,7 +89,7 @@ const EditUserForm = (props) => {
             image_url: image
         }
 
-        const response = await fetch(`https://dogdates.herokuapp.com/owners/${currentUser.id}`, {
+        const response = await fetch(`https://dogdates-api.herokuapp.com/owners/${currentUser.id}`, {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userInfo)
